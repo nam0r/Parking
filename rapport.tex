@@ -198,9 +198,11 @@ Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des
 		\item[3b] le client fournit une carte d'abonnement;
 		\item[4a] il n'y a plus de consommables, la barri\`ere pr\'evient
 			le surveillant;
+		\item[9a] le client est rentr\'e avec une carte bancaire ou une
+			carte d'abonnement et payera automatiquement en sortant;
 		\item[10a] le client est rentr\'e avec une carte bancaire ou
 			d'abonnement et utilise celle-ci en lieu et place d'un
-			ticket de sortie;
+			ticket de sortie.
 	\end{enumerate}
 \end{description}
 
@@ -237,11 +239,28 @@ Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des
 \begin{description}
 	\item[Cas d'utilisation] payer
 	\item[Acteur primaire] le client
-	\item[Acteur support]  
-	\item[Pr\'econdition] 
+	\item[Acteur support] surveillant
+	\item[Pr\'econdition] le client est entr\'e avec un ticket
 	\item[Sc\'enario Primaire] \
-	\item[Postcondition] les probl\`emes, s'il y en a, sont r\'esolus
+	\begin{enumerate}
+		\item le client introduit son ticket d'entr\'ee dans la caisse;
+		\item la caisse affiche le montant \`a payer;
+		\item le client introduit la monnaie;
+		\item la caisse rend la monnaie;
+		\item le client demande un re\c cu;
+		\item la caisse donne un ticket de sortie au client.
+	\end{enumerate}
+	\item[Postcondition] Le client a pay\'e
 	\item[Variantes] \
+	\begin{enumerate}
+		\item[1a] le client a perdu son ticket d'entr\'ee, il appuye sur le
+			bouton associ\'e;
+		\item[3a] le client paye en carte bancaire voir en ch\'eque s'il est
+			\`a une caisse manuelle;
+		\item[3b] le client n'a pas assez de monnaie et appelle le surveillant;
+		\item[4a] la caisse n'a plus assez de monnaie et, soit rend un peu plus, soit
+			appelle le surveilant si elle ne peut pas rendre assez;
+	\end{enumerate}
 \end{description}
 
 \section{Diagrammes d'activit\'es}
