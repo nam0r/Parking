@@ -178,9 +178,7 @@ Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des
 		\item le client rentre;
 		\item la barri\`ere se referme;
 		\item le client se garre;
-		\item le client introduit son ticket d'entr\'ee dans la borne de payement;
 		\item \textbf{le client paye};
-		\item le client re\c coit son ticket de sortie;
 		\item le client introduit le ticket de sortie dans la borne de sortie;
 		\item la premi\`ere barri\`ere de sortie se l\`eve;
 		\item le client s'avance sur la boucle;
@@ -191,6 +189,19 @@ Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des
 	\end{enumerate}
 	\item[Postcondition] le client s'est garr\'e et est sortit du parking
 	\item[Variantes] \
+	\begin{enumerate}
+		\item[1a] le v\'ehicule est trop haut et ne peut rentrer dans
+			le parking;
+		\item[2a] le v\'ehicule est trop lourd et l'entr\'ee est
+			refus\'ee au client;
+		\item[3a] le client fournit une carte bancaire;
+		\item[3b] le client fournit une carte d'abonnement;
+		\item[4a] il n'y a plus de consommables, la barri\`ere pr\'evient
+			le surveillant;
+		\item[10a] le client est rentr\'e avec une carte bancaire ou
+			d'abonnement et utilise celle-ci en lieu et place d'un
+			ticket de sortie;
+	\end{enumerate}
 \end{description}
 
 \subsection{Gestion du parking}
