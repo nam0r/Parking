@@ -170,7 +170,7 @@ Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des
 	\item[Pr\'econdition] place libre dans le parking
 	\item[Sc\'enario Primaire] \
 	\begin{enumerate}
-		\item le client passe sous le syst\`eme de d\'etection de hauteur;
+		\item Le client passe sous le syst\`eme de d\'etection de hauteur;
 		\item le client passe sur la boucle;
 		\item le client demande un ticket;
 		\item le client prend son ticket;
@@ -179,7 +179,7 @@ Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des
 		\item la barri\`ere se referme;
 		\item le client se garre;
 		\item le client introduit son ticket d'entr\'ee dans la borne de payement;
-		\item le client paye;
+		\item \textbf{le client paye};
 		\item le client re\c coit son ticket de sortie;
 		\item le client introduit le ticket de sortie dans la borne de sortie;
 		\item la premi\`ere barri\`ere de sortie se l\`eve;
@@ -197,12 +197,41 @@ Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des
 \begin{description}
 	\item[Cas d'utilisation] gestion du parking
 	\item[Acteur primaire] le syst\`eme
-	\item[Acteur support] 
-	\item[Pr\'econdition] place libre dans le parking
+	\item[Acteur support]  la fourri\`ere, le surveillant, le technicien, soci\'et\'e
+				de parking
+	\item[Pr\'econdition] 
+	\item[Sc\'enario Primaire] \
+	\begin{enumerate}
+		\item Le surveillant appelle la fourri\`ere si un v\'ehicule est
+		pr\'esent sur le parking depuis plus de $72$ heures;
+		\item le surveillant appelle le technicien en cas de probl\`emes
+		techniques sur le parking;
+		\item le technicien maintient r\'eguli\`erement les diff\'erents
+		\'el\'ements du parking;
+		\item le surveillant s'occupe d'alimenter les machines en consommables
+		lorsque celles-ci lui signale un manque;
+		\item le surveillant alimente r\'eguli\`erement les caisses en
+		monnaie et les bornes en consommables;
+		\item le syst\`eme envoie quotidiennement \`a la soci\'et\'e des
+		informations relatives aux clients (dans le but d'\'etablir des
+		statistiques);
+		\item le syst\`eme envoie quotidiennement \`a la soci\'et\'e les
+		diff\'erentes transactions bancaires \`a effectuer.
+	\end{enumerate}
+	\item[Postcondition] les probl\`emes, s'il y en a, sont r\'esolus
+	\item[Variantes] \
+\end{description}
+
+\subsection{Payer}
+\begin{description}
+	\item[Cas d'utilisation] payer
+	\item[Acteur primaire] le client
+	\item[Acteur support]  
+	\item[Pr\'econdition] 
 	\item[Sc\'enario Primaire] \
 	\begin{enumerate}
 	\end{enumerate}
-	\item[Postcondition] le client s'est garr\'e et est sortit du parking
+	\item[Postcondition] les probl\`emes, s'il y en a, sont r\'esolus
 	\item[Variantes] \
 \end{description}
 
