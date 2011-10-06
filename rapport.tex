@@ -333,37 +333,47 @@ Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des
 	\item[Variantes] \
 \end{description}
 
-\subsection{Payer}
+\subsection{Le client paye}
 \begin{description}
-	\item[Cas d'utilisation] payer
+	\item[Cas d'utilisation] le client paye
 	\item[Acteur primaire] le client
-	\item[Acteur support] surveillant
-	\item[Pr\'econdition] le client est entr\'e avec un ticket
+	\item[Acteur support] le surveillant
+	\item[Pr\'econdition] le client est entr\'e avec un ticket et est devant une caisse
 	\item[Sc\'enario Primaire] \
 	\begin{enumerate}
-		\item le client introduit son ticket d'entr\'ee dans la caisse;
-		\item la caisse affiche le montant \`a payer;
-		\item le client introduit la monnaie;
-		\item la caisse rend la monnaie;
-		\item la caisse donne un ticket de sortie au client.
+		\item le client fournit son ticket d'entr\'ee;
+		\item la caisse indique le montant \`a payer;
+		\item \textbf{le client paye en liquide};
+		\item le client r\'ecup\`ere un ticket de sortie.
 	\end{enumerate}
-	\item[Postcondition] Le client a pay\'e
+	\item[Postcondition] Le client a pay\'e et a un ticket de sortie
 	\item[Variantes] \
 	\begin{enumerate}
 		\item[1a] le client a perdu son ticket d'entr\'ee, il appuye sur le
 			bouton associ\'e pour pr\'evenir le surveillant;
+		\item[1b] le client donne son ticket au surveillant;
 		\item[2a] le montant ne correspond pas ou ne s'affiche pas, le client
-			pr\'evinet le surveillant;
-		\item[3a] le client paye en carte bancaire voir en ch\`eque s'il est
-			\`a une caisse manuelle;
-		\item[3b] le client n'a pas assez de monnaie et appelle le surveillant
-			via l'interphone;
-		\item[4a] la caisse n'a plus assez de monnaie et, soit rend un peu plus, soit
-			appelle le surveilant si elle ne peut pas rendre assez;
-		\item[5a] il n'y a plus de consommable, le surveillant est pr\'evenu.
+			pr\'evient le surveillant;
+		\item[2b] le surveillant indique le montant \`a payer;
+		\item[3a] \textbf{le client introduit une carte pour payer};
+		\item[3b] le client paye en ch\`eque au surveillant;
+		\item[4a] il n'y a plus de consommable, le surveillant est pr\'evenu.
 	\end{enumerate}
 \end{description}
 
-\section{Diagrammes d'activit\'es}
+\subsection{le client paye en liquide}
 
+\subsection{Le client introduit une carte pour payer}
+\begin{description}
+	\item[Cas d'utilisation] le client introduit une carte pour payer
+	\item[Acteur primaire] le client
+	\item[Acteur support] le surveillant
+	\item[Pr\'econdition] le client 
+	\item[Sc\'enario Primaire] \
+	\begin{enumerate}
+		\item TRQLQNL
+	\end{enumerate}
+\end{description}
+\section{Diagrammes d'activit\'es}
 \end{document}
+
