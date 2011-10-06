@@ -61,6 +61,7 @@ Ce document a pour but de r\'ealiser une mod\'elisation objet d'un parking \`a p
 Pour ce faire, on commencera par d\'ecrire de fa\c con g\'en\'erale le fonctionnement
 du syst\`eme, pour ensuite rentrer dans les d\'etails via diff\'erents types de diagrammes
 \'etudi\'es en cours\footnote{\url{http://users.polytech.unice.fr/~cm/}}.
+
 \section{Description du syst\`eme}
 Le parking, repr\'esent\'e figure \ref{parking}, est compos\'e de plusieurs entr\'ees,
 sorties et caisses.
@@ -155,7 +156,30 @@ Les acteurs vont int\'eragir sur le syst\`eme au travers de deux grandes fonctio
 	\item \textit{Gestion du parking}.
 \end{enumerate}
 
-XXX
+\subsubsection{Se garer}
+Le client doit d'abord entrer dans le parking, pour cela il doit s'identifier pour pouvoir ensuite payer, il peut alors :
+\begin{enumerate}
+		\item Prendre un ticket magnétique d'entrée qui contiendra les informations sur l'heure d'entr\'ee et permettra ensuite de payer à une borne de paiment;
+		\item Ins\'erer une carte d'abonnement d\'ej\`a cr\'edit\'ee qui sera débit\'ee automatiquement lorsque le client devra sortir;
+		\item Ins\'erer une carte bancaire dont la signature magn\'etique sera identifi\'ee et qui pourra ensuite être d\'ebit\'ee lors de la sortie.
+\end{enumerate}
+
+Ensuite, une fois que le client veut partir, il doit payer. Pour cela il peut :
+\begin{enumerate}
+		\item Ins\'erer la carte d'abonnement pour sortir, celle-ci sera débit\'ee automatiquement;
+		\item Ins\'erer la même carte bancaire qu'il avait ins\'er\'e en entrant, et celle-ci sera \'egalement d\'ebit\'ee du montant ad\'equat;
+		\item Ins\'erer le ticket de sortie dans une borne de paiment, payer avec un moyen de paiment tiers, et prendre le ticket magn\'etique de sortie qui permettra la lev\'ee de la barrière;
+\end{enumerate}
+
+\subsubsection{Gestion du parking}
+Le parking a besoin d'etre maintenu et g\'er\'e. On distingue plusieurs aspects :
+\begin{enumerate}
+		\item La gestion g\'en\'erale du parking et la coh\'erence de son fonctionnement assur\'ee par un surveillant;
+		\item Le fait d'alimenter en consommable les machines et en monnaie les bornes de paiment.
+		\item L'intervention d'un technicien en cas de panne des machines;
+		\item L'envoi' quotidien \`a la soci\'et\'e des informations relatives aux clients dans le but d'\'etablir des statistiques et les diff\'erentes transactions bancaires \`a effectuer;
+\end{enumerate}
+
 
 Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des diff\'erents
 \'elements de ces fonctionnalit\'es.
