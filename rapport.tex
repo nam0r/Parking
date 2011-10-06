@@ -159,14 +159,14 @@ Les acteurs vont int\'eragir sur le syst\`eme au travers de deux grandes fonctio
 \subsubsection{Se garer}
 Le client doit d'abord entrer dans le parking, pour cela il doit s'identifier pour pouvoir ensuite payer, il peut alors :
 \begin{enumerate}
-		\item Prendre un ticket magnétique d'entrée qui contiendra les informations sur l'heure d'entr\'ee et permettra ensuite de payer à une borne de paiment;
-		\item Ins\'erer une carte d'abonnement d\'ej\`a cr\'edit\'ee qui sera débit\'ee automatiquement lorsque le client devra sortir;
+		\item Prendre un ticket magn\'etique d'entr\'ee qui contiendra les informations sur l'heure d'entr\'ee et permettra ensuite de payer \`a une borne de paiment;
+		\item Ins\'erer une carte d'abonnement d\'ej\`a cr\'edit\'ee qui sera d\'ebit\'ee automatiquement lorsque le client devra sortir;
 		\item Ins\'erer une carte bancaire dont la signature magn\'etique sera identifi\'ee et qui pourra ensuite être d\'ebit\'ee lors de la sortie.
 \end{enumerate}
 
 Ensuite, une fois que le client veut partir, il doit payer. Pour cela il peut :
 \begin{enumerate}
-		\item Ins\'erer la carte d'abonnement pour sortir, celle-ci sera débit\'ee automatiquement;
+		\item Ins\'erer la carte d'abonnement pour sortir, celle-ci sera d\'ebit\'ee automatiquement;
 		\item Ins\'erer la même carte bancaire qu'il avait ins\'er\'e en entrant, et celle-ci sera \'egalement d\'ebit\'ee du montant ad\'equat;
 		\item Ins\'erer le ticket de sortie dans une borne de paiment, payer avec un moyen de paiment tiers, et prendre le ticket magn\'etique de sortie qui permettra la lev\'ee de la barrière;
 \end{enumerate}
@@ -190,55 +190,117 @@ Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des
 	\includegraphics[scale=.7]{parking.png}
 	\caption{\label{usecase} Diagramme des cas d'utilisation de haut niveau}
 \end{figure}
+
 \section{Sc\'enarios Cockburn}
-\subsection{Se garer}
+\subsection{Le client se gare}
 \begin{description}
-	\item[Cas d'utilisation] se garer
+	\item[Cas d'utilisation] le client se gare
 	\item[Acteur primaire] client
 	\item[Acteur support] surveillant
 	\item[Pr\'econdition] place libre dans le parking
 	\item[Sc\'enario Primaire] \
 	\begin{enumerate}
+		\item \textbf{le client rentre};
+		\item \textbf{le client paye};
+		\item \textbf{le client sort}.
+	\end{enumerate}
+	\item[Postcondition] le client s'est gar\'e, a pay\'e et est sorti du parking
+\end{description}
+
+\subsection{Le client rentre}
+\begin{description}
+	\item[Cas d'utilisation] le client rentre
+	\item[Acteur primaire] client
+	\item[Acteur support]
+	\item[Pr\'econdition] place libre dans le parking
+	\item[Sc\'enario Primaire] \
+	\begin{enumerate}
 		\item Le client passe sous le syst\`eme de d\'etection de hauteur;
 		\item le client passe sur la boucle;
-		\item le client demande un ticket;
-		\item le client prend son ticket;
+		\item le client appuye sur un bouton pour r\'ecup\'erer un ticket;
 		\item la barri\`ere se l\`eve;
-		\item le client rentre;
-		\item la barri\`ere se referme;
-		\item le client se gare;
-		\item \textbf{le client paye};
-		\item le client introduit le ticket de sortie dans la borne de sortie;
-		\item la premi\`ere barri\`ere de sortie se l\`eve;
+		\item le client avance;
+		\item la barri\`ere d\'etecte le passage du client;
+		\item la barri\`ere se referme derri\`ere le client;
+		\item le client se gare.
+	\end{enumerate}
+	\item[Postcondition] le client est rentr\'e dans le parking et a trouv\'e une place
+	\item[Variantes] \
+	\begin{enumerate}
+		\item[1a] Le v\'ehicule est trop haut et ne peut rentrer dans
+			le parking;
+		\item[2a] le v\'ehicule est trop lourd: la borne le signale au client
+			qui peut alors pr\'evenir le surveillant via un interphone situ\'e
+			sur la borne;
+		\item[3a] \textbf{le client introduit une carte pour rentrer};
+		\item[3b] il n'y a plus de consommables, la barri\`ere pr\'evient
+			le surveillant et demande au client de patienter;
+		\item[6a] la barri\`ere n'a pas d\'et\'ect\'e le passage d'un v\'ehicule
+			en $5$ minutes, elle pr\'evient donc le surveillant puis se referme.
+	\end{enumerate}
+\end{description}
+
+\subsection{Le client introduit une carte pour rentrer}
+\begin{description}
+	\item[Cas d'utilisation] le client introduit une carte pour rentrer
+	\item[Acteur primaire] client
+	\item[Acteur support] surveillant
+	\item[Pr\'econdition] place libre dans le parking
+	\item[Sc\'enario Primaire] \
+	\begin{enumerate}
+		\item le client introduit une carte dans le lecteur de carte de la borne;
+		\item la borne r\'ecup\`ere l'empreinte de la carte;
+		\item la borne rend la carte
+	\end{enumerate}
+	\item[Postcondition] le client a r\'ecup\'er\'e sa carte et est pr\^et \`a rentrer.
+	\item[Variantes] \
+	\begin{enumerate}
+		\item[1a] la carte n'est pas valide: soit ce n'est ni une carte bancaire
+			ni une carte d'abonnement, soit c'est une carte r\'epertori\'ee
+			comme \'etant perdue. Dans tous les cas, la borne pr\'evient le
+			surveillant;
+	\end{enumerate}
+\end{description}
+
+\subsection{Le client sort}
+\begin{description}
+	\item[Cas d'utilisation] le client sort
+	\item[Acteur primaire] client
+	\item[Acteur support]
+	\item[Pr\'econdition] le client est entr\'e dans le parking et poss\`ede un ticket de sortie
+	\item[Sc\'enario Primaire] \
+	\begin{enumerate}
+		\item le client s'avance vers la premi\`ere barri\`ere;
+		\item le client introduit son ticket de sortie;
+		\item la premi\`ere barri\`ere se l\`eve;
 		\item le client s'avance sur la boucle;
 		\item la premi\`ere barri\`ere de sortie se referme;
 		\item la seconde barri\`ere de sortie se l\`eve;
 		\item le client sort;
+		\item la seconde barri\`ere d\'etecte le passage du client;
 		\item la deuxi\`eme barri\`ere s'abaisse.
 	\end{enumerate}
-	\item[Postcondition] le client s'est gar\'e et est sortit du parking
+	\item[Postcondition] le client est sorti.
 	\item[Variantes] \
 	\begin{enumerate}
-		\item[1a] le v\'ehicule est trop haut et ne peut rentrer dans
-			le parking;
-		\item[2a] le v\'ehicule est trop lourd et l'entr\'ee est
-			refus\'ee au client, celui-ci peut contacter le surveillant
-			via l'interphone de la borne;
-		\item[3a] le client fournit une carte bancaire;
-		\item[3b] le client fournit une carte d'abonnement;
-		\item[4a] il n'y a plus de consommables, la barri\`ere pr\'evient
-			le surveillant;
-		\item[9a] le client est rentr\'e avec une carte bancaire ou une
-			carte d'abonnement et payera automatiquement en sortant;
-		\item[9b] apr\`es avoir pay\'e, le client demande un re\c cu
-			en appuyant sur le bouton associ\'e;
-		\item[10a] le client est rentr\'e avec une carte bancaire ou
-			d'abonnement et utilise celle-ci en lieu et place d'un
-			ticket de sortie;
-		\item[10b] le client demande un re\c cu en appuyant sur le
-			bouton correspondant;
-		\item[12a] la boucle ne d\'etecte pas la voiture, le client peut
-			contacter le surveillant via l'interphone.
+		\item[2a] \textbf{Le client introduit une carte pour sortir};
+		\item[7a] la barri\`ere n'a pas d\'et\'ect\'e de v\'ehicule en $5$ minutes,
+			elle pr\'evient donc le surveillant puis se referme.
+	\end{enumerate}
+\end{description}
+
+\subsection{Le client introduit une carte pour sortir}
+\begin{description}
+	\item[Cas d'utilisation] le client introduit une carte pour sortir
+	\item[Acteur primaire] client
+	\item[Acteur support]
+	\item[Pr\'econdition] le client est entr\'e avec une carte et est \`a
+		c\^ot\'e de la premi\`ere barri\`ere de sortie
+	\item[Sc\'enario Primaire] \
+	\begin{enumerate}
+		\item Le client introduit une carte dans le lecteur;
+		\item le lecteur envoie les informations relatives \`a la transaction
+			\`a l'ordinateur du surveillant
 	\end{enumerate}
 \end{description}
 
@@ -289,7 +351,9 @@ Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des
 	\item[Variantes] \
 	\begin{enumerate}
 		\item[1a] le client a perdu son ticket d'entr\'ee, il appuye sur le
-			bouton associ\'e;
+			bouton associ\'e pour pr\'evenir le surveillant;
+		\item[2a] le montant ne correspond pas ou ne s'affiche pas, le client
+			pr\'evinet le surveillant;
 		\item[3a] le client paye en carte bancaire voir en ch\`eque s'il est
 			\`a une caisse manuelle;
 		\item[3b] le client n'a pas assez de monnaie et appelle le surveillant
