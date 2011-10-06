@@ -61,6 +61,7 @@ Ce document a pour but de r\'ealiser une mod\'elisation objet d'un parking \`a p
 Pour ce faire, on commencera par d\'ecrire de fa\c con g\'en\'erale le fonctionnement
 du syst\`eme, pour ensuite rentrer dans les d\'etails via diff\'erents types de diagrammes
 \'etudi\'es en cours\footnote{\url{http://users.polytech.unice.fr/~cm/}}.
+
 \section{Description du syst\`eme}
 Le parking, repr\'esent\'e figure \ref{parking}, est compos\'e de plusieurs entr\'ees,
 sorties et caisses.
@@ -155,12 +156,40 @@ Les acteurs vont int\'eragir sur le syst\`eme au travers de deux grandes fonctio
 	\item \textit{Gestion du parking}.
 \end{enumerate}
 
-XXX
+\subsubsection{Se garer}
+Le client doit d'abord entrer dans le parking, pour cela il doit s'identifier pour pouvoir ensuite payer, il peut alors :
+\begin{enumerate}
+		\item Prendre un ticket magn\'etique d'entr\'ee qui contiendra les informations sur l'heure d'entr\'ee et permettra ensuite de payer \`a une borne de paiment;
+		\item Ins\'erer une carte d'abonnement d\'ej\`a cr\'edit\'ee qui sera d\'ebit\'ee automatiquement lorsque le client devra sortir;
+		\item Ins\'erer une carte bancaire dont la signature magn\'etique sera identifi\'ee et qui pourra ensuite \^etre d\'ebit\'ee lors de la sortie.
+\end{enumerate}
+
+Ensuite, une fois que le client veut partir, il doit payer. Pour cela il peut :
+\begin{enumerate}
+		\item Ins\'erer la carte d'abonnement pour sortir, celle-ci sera d\'ebit\'ee automatiquement;
+		\item Ins\'erer la m\^eme carte bancaire qu'il avait ins\'er\'e en entrant, et celle-ci sera \'egalement d\'ebit\'ee du montant ad\'equat;
+		\item Ins\'erer le ticket de sortie dans une borne de paiment, payer avec un moyen de paiment tiers, et prendre le ticket magn\'etique de sortie qui permettra la lev\'ee de la barri\`ere;
+\end{enumerate}
+
+\subsubsection{Gestion du parking}
+Le parking a besoin d'etre maintenu et g\'er\'e. On distingue plusieurs aspects :
+\begin{enumerate}
+		\item La gestion g\'en\'erale du parking et la coh\'erence de son fonctionnement assur\'ee par un surveillant;
+		\item Le fait d'alimenter en consommable les machines et en monnaie les bornes de paiment.
+		\item L'intervention d'un technicien en cas de panne des machines;
+		\item L'envoi' quotidien \`a la soci\'et\'e des informations relatives aux clients dans le but d'\'etablir des statistiques et les diff\'erentes transactions bancaires \`a effectuer;
+\end{enumerate}
+
 
 Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des diff\'erents
 \'elements de ces fonctionnalit\'es.
 
 \section{Diagrammes des cas d'utilisation (Use case)}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=.7]{parking.png}
+	\caption{\label{usecase} Diagramme des cas d'utilisation de haut niveau}
+\end{figure}
 \section{Sc\'enarios Cockburn}
 \subsection{Se garer}
 \begin{description}
@@ -177,7 +206,7 @@ Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des
 		\item la barri\`ere se l\`eve;
 		\item le client rentre;
 		\item la barri\`ere se referme;
-		\item le client se garre;
+		\item le client se gare;
 		\item \textbf{le client paye};
 		\item le client introduit le ticket de sortie dans la borne de sortie;
 		\item la premi\`ere barri\`ere de sortie se l\`eve;
@@ -187,20 +216,29 @@ Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des
 		\item le client sort;
 		\item la deuxi\`eme barri\`ere s'abaisse.
 	\end{enumerate}
-	\item[Postcondition] le client s'est garr\'e et est sortit du parking
+	\item[Postcondition] le client s'est gar\'e et est sortit du parking
 	\item[Variantes] \
 	\begin{enumerate}
 		\item[1a] le v\'ehicule est trop haut et ne peut rentrer dans
 			le parking;
 		\item[2a] le v\'ehicule est trop lourd et l'entr\'ee est
-			refus\'ee au client;
+			refus\'ee au client, celui-ci peut contacter le surveillant
+			via l'interphone de la borne;
 		\item[3a] le client fournit une carte bancaire;
 		\item[3b] le client fournit une carte d'abonnement;
 		\item[4a] il n'y a plus de consommables, la barri\`ere pr\'evient
 			le surveillant;
+		\item[9a] le client est rentr\'e avec une carte bancaire ou une
+			carte d'abonnement et payera automatiquement en sortant;
+		\item[9b] apr\`es avoir pay\'e, le client demande un re\c cu
+			en appuyant sur le bouton associ\'e;
 		\item[10a] le client est rentr\'e avec une carte bancaire ou
 			d'abonnement et utilise celle-ci en lieu et place d'un
 			ticket de sortie;
+		\item[10b] le client demande un re\c cu en appuyant sur le
+			bouton correspondant;
+		\item[12a] la boucle ne d\'etecte pas la voiture, le client peut
+			contacter le surveillant via l'interphone.
 	\end{enumerate}
 \end{description}
 
@@ -214,20 +252,20 @@ Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des
 	\item[Sc\'enario Primaire] \
 	\begin{enumerate}
 		\item Le surveillant appelle la fourri\`ere si un v\'ehicule est
-		pr\'esent sur le parking depuis plus de $72$ heures;
+			pr\'esent sur le parking depuis plus de $72$ heures;
 		\item le surveillant appelle le technicien en cas de probl\`emes
-		techniques sur le parking;
+			techniques sur le parking;
 		\item le technicien maintient r\'eguli\`erement les diff\'erents
-		\'el\'ements du parking;
+			\'el\'ements du parking;
 		\item le surveillant s'occupe d'alimenter les machines en consommables
-		lorsque celles-ci lui signale un manque;
+			lorsque celles-ci lui signalent un manque;
 		\item le surveillant alimente r\'eguli\`erement les caisses en
-		monnaie et les bornes en consommables;
+			monnaie et les bornes en consommables;
 		\item le syst\`eme envoie quotidiennement \`a la soci\'et\'e des
-		informations relatives aux clients (dans le but d'\'etablir des
-		statistiques);
+			informations relatives aux clients (dans le but d'\'etablir des
+			statistiques);
 		\item le syst\`eme envoie quotidiennement \`a la soci\'et\'e les
-		diff\'erentes transactions bancaires \`a effectuer.
+			diff\'erentes transactions bancaires \`a effectuer.
 	\end{enumerate}
 	\item[Postcondition] les probl\`emes, s'il y en a, sont r\'esolus
 	\item[Variantes] \
@@ -237,11 +275,29 @@ Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des
 \begin{description}
 	\item[Cas d'utilisation] payer
 	\item[Acteur primaire] le client
-	\item[Acteur support]  
-	\item[Pr\'econdition] 
+	\item[Acteur support] surveillant
+	\item[Pr\'econdition] le client est entr\'e avec un ticket
 	\item[Sc\'enario Primaire] \
-	\item[Postcondition] les probl\`emes, s'il y en a, sont r\'esolus
+	\begin{enumerate}
+		\item le client introduit son ticket d'entr\'ee dans la caisse;
+		\item la caisse affiche le montant \`a payer;
+		\item le client introduit la monnaie;
+		\item la caisse rend la monnaie;
+		\item la caisse donne un ticket de sortie au client.
+	\end{enumerate}
+	\item[Postcondition] Le client a pay\'e
 	\item[Variantes] \
+	\begin{enumerate}
+		\item[1a] le client a perdu son ticket d'entr\'ee, il appuye sur le
+			bouton associ\'e;
+		\item[3a] le client paye en carte bancaire voir en ch\`eque s'il est
+			\`a une caisse manuelle;
+		\item[3b] le client n'a pas assez de monnaie et appelle le surveillant
+			via l'interphone;
+		\item[4a] la caisse n'a plus assez de monnaie et, soit rend un peu plus, soit
+			appelle le surveilant si elle ne peut pas rendre assez;
+		\item[5a] il n'y a plus de consommable, le surveillant est pr\'evenu.
+	\end{enumerate}
 \end{description}
 
 \section{Diagrammes d'activit\'es}
