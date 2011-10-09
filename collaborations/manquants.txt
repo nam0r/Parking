@@ -1,0 +1,44 @@
+En général :
+  * il faudrait remplacer tous les "machine" par le vrai nom de la machine en question : borne, 
+caisse...
+  * il faudrait être au clair sur le rôle des machines : par exemple, est-ce la borne ou la barrière qui 
+détecte le passage d'un véhicule
+
+
+
+Collaboration de "Le client rentre" :
+  Rajouter en 2a et 3b "par l'intermédiaire d'un panneau d'affichage"
+  - place ?
+  - parking ?
+
+Collaboration de "Le client insère une carte pour rentrer" :
+  - empreinte de la carte ?
+  - place ?
+  - parking ?
+
+Collaboration de "Le client sort" :
+  La borne de sortie n'apparait pas dans le scénario Cockburn.
+
+  On a traite le cas "Il n'y a plus de consommable en 3b dans "Le client rentre"
+  mais pas dans ce cas. C'est bizarre...
+
+  On dit que le client s'avance sur la boucle au sol mais on ne traite pas de cas
+  où le client est trop lourd. C'est bizarre aussi...
+  
+Collaboration de "Le client insère une carte pour sortir" :
+  Il faut par changer le point 3 : "La carte est rendue au client" -> "La borne (ou le lecteur de carte)
+  rend la carte au client".
+
+  Faut-il mettre l'ordinateur du surveillant ou est-ce un acteur ?
+
+Collaboration de "Gestion du parking" :
+  Les points 4 & 5 se recoupent
+  A revoir : je ne suis pas du tout sûr de ce qu'il faut mettre...
+  
+Collaboration de "Le client paye" :
+
+Collaboration de "Le client paye en liquide" :
+  Dans le 2, ce n'est pas la borne qui rend la monnaie mais la caisse.
+  "n'a pas intéragit" -> "n'a pas interagi" : pas d'accent, pas de 't'
+
+Collaboration de "Le client introduit une carte pour payer" :
