@@ -211,7 +211,7 @@ Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des
 \begin{description}
 	\item[Cas d'utilisation] le client rentre
 	\item[Acteur primaire] client
-	\item[Acteur support]
+	\item[Acteur support] surveillant
 	\item[Pr\'econdition] place libre dans le parking
 	\item[Sc\'enario Primaire] \
 	\begin{enumerate}
@@ -258,7 +258,7 @@ Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des
 		\item[1a] la carte n'est pas valide: soit ce n'est ni une carte bancaire
 			ni une carte d'abonnement, soit c'est une carte r\'epertori\'ee
 			comme \'etant perdue. Dans tous les cas, la borne pr\'evient le
-			surveillant;
+			surveillant.
 	\end{enumerate}
 \end{description}
 
@@ -293,14 +293,20 @@ Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des
 \begin{description}
 	\item[Cas d'utilisation] le client introduit une carte pour sortir
 	\item[Acteur primaire] client
-	\item[Acteur support]
+	\item[Acteur support] surveillant
 	\item[Pr\'econdition] le client est entr\'e avec une carte et est \`a
 		c\^ot\'e de la premi\`ere barri\`ere de sortie
 	\item[Sc\'enario Primaire] \
 	\begin{enumerate}
 		\item Le client introduit une carte dans le lecteur;
 		\item le lecteur envoie les informations relatives \`a la transaction
-			\`a l'ordinateur du surveillant
+			\`a l'ordinateur du surveillant;
+		\item la carte est rendue au client.
+	\end{enumerate}
+	\item[Postcondition] la transaction est enregistr\'ee
+	\item[Variantes] \
+	\begin{enumerate}
+		\item[1a] la carte est invalide, la borne pr\'evient le surveillant;
 	\end{enumerate}
 \end{description}
 
@@ -333,37 +339,77 @@ Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des
 	\item[Variantes] \
 \end{description}
 
-\subsection{Payer}
+\subsection{Le client paye}
 \begin{description}
-	\item[Cas d'utilisation] payer
+	\item[Cas d'utilisation] le client paye
 	\item[Acteur primaire] le client
-	\item[Acteur support] surveillant
-	\item[Pr\'econdition] le client est entr\'e avec un ticket
+	\item[Acteur support] le surveillant
+	\item[Pr\'econdition] le client est entr\'e avec un ticket et est devant une caisse
 	\item[Sc\'enario Primaire] \
 	\begin{enumerate}
-		\item le client introduit son ticket d'entr\'ee dans la caisse;
-		\item la caisse affiche le montant \`a payer;
-		\item le client introduit la monnaie;
-		\item la caisse rend la monnaie;
-		\item la caisse donne un ticket de sortie au client.
+		\item le client fournit son ticket d'entr\'ee;
+		\item la caisse indique le montant \`a payer;
+		\item \textbf{le client paye en liquide};
+		\item le client r\'ecup\`ere un ticket de sortie.
 	\end{enumerate}
-	\item[Postcondition] Le client a pay\'e
+	\item[Postcondition] Le client a pay\'e et a un ticket de sortie
 	\item[Variantes] \
 	\begin{enumerate}
 		\item[1a] le client a perdu son ticket d'entr\'ee, il appuye sur le
 			bouton associ\'e pour pr\'evenir le surveillant;
+		\item[1b] le client donne son ticket au surveillant;
 		\item[2a] le montant ne correspond pas ou ne s'affiche pas, le client
-			pr\'evinet le surveillant;
-		\item[3a] le client paye en carte bancaire voir en ch\`eque s'il est
-			\`a une caisse manuelle;
-		\item[3b] le client n'a pas assez de monnaie et appelle le surveillant
-			via l'interphone;
-		\item[4a] la caisse n'a plus assez de monnaie et, soit rend un peu plus, soit
-			appelle le surveilant si elle ne peut pas rendre assez;
-		\item[5a] il n'y a plus de consommable, le surveillant est pr\'evenu.
+			pr\'evient le surveillant;
+		\item[2b] le surveillant indique le montant \`a payer;
+		\item[3a] \textbf{le client introduit une carte pour payer};
+		\item[3b] le client paye en ch\`eque au surveillant;
+		\item[4a] il n'y a plus de consommable, le surveillant est pr\'evenu.
 	\end{enumerate}
 \end{description}
 
-\section{Diagrammes d'activit\'es}
+\subsection{le client paye en liquide}
+\begin{description}
+	\item[Cas d'utilisation] le client paye en liquide
+	\item[Acteur primaire] le client
+	\item[Acteur support] le surveillant
+	\item[Pr\'econdition]
+	\item[Sc\'enario Primaire] \
+	\begin{enumerate}
+		\item le client fournit de la monnaie \`a la caisse;
+		\item la borne rend la monnaie;
+	\end{enumerate}
+	\item[Postcondition] le client a pay\'e en liquide
+	\item[Variantes] \
+	\begin{enumerate}
+		\item[1a] le client n'a pas fourni assez de monnaie et n'a
+			pas int\'eragit avec la machine pendant $5$ minutes: la
+			caisse appelle le surveillant;
+		\item[2a] la borne a un solde suffisant mais pas assez de
+			monnaie: elle rend plus de monnaie, tout en indiquant au
+			surveillant un manque d'esp\`eces;
+		\item[2b] la borne a un solde inf\'erieur \`a ce qu'elle doit
+			rendre au client: elle pr\'evient le surveillant
+	\end{enumerate}
+\end{description}
 
+\subsection{Le client introduit une carte pour payer}
+\begin{description}
+	\item[Cas d'utilisation] le client introduit une carte pour payer
+	\item[Acteur primaire] le client
+	\item[Acteur support] le surveillant
+	\item[Pr\'econdition] le client poss\`ede une carte
+	\item[Sc\'enario Primaire] \
+	\begin{enumerate}
+		\item le client introduit une carte dans le lecteur de la borne;
+		\item la borne calcule puis stocke la transaction \`a effectuer;
+		\item la borne rend la carte
+	\end{enumerate}
+	\item[Postcondition] le client a pay\'e avec sa carte
+	\item[Variantes] \
+	\begin{enumerate}
+		\item[1a] la carte est invalide; la borne pr\'evient le surveillant.
+	\end{enumerate}
+\end{description}
+\section{Diagrammes d'activit\'es}
 \end{document}
+
