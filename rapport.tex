@@ -397,7 +397,7 @@ d\'efinis auparavant.
 		\item Le client introduit une carte dans le lecteur;
 		\item le lecteur envoie les informations relatives \`a la transaction
 			\`a l'ordinateur du surveillant;
-		\item la carte est rendue au client.
+		\item le lecteur redonne la carte au client.
 	\end{enumerate}
 	\item[Postcondition] la transaction est enregistr\'ee
 	\item[Variantes] \
@@ -474,18 +474,18 @@ d\'efinis auparavant.
 	\item[Sc\'enario Primaire] \
 	\begin{enumerate}
 		\item le client fournit de la monnaie \`a la caisse;
-		\item la borne rend la monnaie;
+		\item la caisse rend la monnaie;
 	\end{enumerate}
 	\item[Postcondition] le client a pay\'e en liquide
 	\item[Variantes] \
 	\begin{enumerate}
 		\item[1a] le client n'a pas fourni assez de monnaie et n'a
-			pas int\'eragit avec la machine pendant $5$ minutes: la
+			pas interagi avec la machine pendant $5$ minutes: la
 			caisse appelle le surveillant;
-		\item[2a] la borne a un solde suffisant mais pas assez de
+		\item[2a] la caisse a un solde suffisant mais pas assez de
 			monnaie: elle rend plus de monnaie, tout en indiquant au
 			surveillant un manque d'esp\`eces;
-		\item[2b] la borne a un solde inf\'erieur \`a ce qu'elle doit
+		\item[2b] la caisse a un solde inf\'erieur \`a ce qu'elle doit
 			rendre au client: elle pr\'evient le surveillant
 	\end{enumerate}
 \end{description}
