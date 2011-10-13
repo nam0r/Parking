@@ -67,9 +67,16 @@ Le parking, repr\'esent\'e figure \ref{parking}, est compos\'e de plusieurs entr
 sorties et caisses.
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=.7]{imgs/parking.png}
+	\includegraphics[scale=.6]{imgs/parking.png}
 	\caption{\label{parking} Sch\'ema du parking. Pour simplifier, les \'el\'ements
 		dupliqu\'es ne sont repr\'esent\'es qu'une seule fois}
+\end{figure}
+Les bornes sont elles-m\^emes compos\'ees de plusieurs \'el\'ements.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=.4]{imgs/borne.png}
+	\caption{\label{borne} Sch\'ema d'une borne, contenant un lecteur de carte,
+	un distributeur de tickets, un interphone ainsi qu'un bouton d'appel.}
 \end{figure}
 
 Une entr\'ee est typiquement constitu\'ee de :
@@ -149,36 +156,52 @@ C'est elle qui poss\`ede et g\`ere le parking. Elle intervient ici essentielleme
 recevoir les statistiques sur l'utilisation du parking, envoy\'e une fois par jour, au
 m\^eme moment que les transactions bancaires.
 
-\subsection{Sc\'enarios brefs}
+\subsection{Fonctionnalit\'es}
 Les acteurs vont int\'eragir sur le syst\`eme au travers de deux grandes fonctionnalit\'es:
 \begin{enumerate}
 	\item \textit{Se garer};
 	\item \textit{Gestion du parking}.
 \end{enumerate}
 
+
+Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des diff\'erents
+\'elements de ces fonctionnalit\'es.
+
+\section{Diagrammes des cas d'utilisation (Use case) et sc\'enarios brefs}
+La figure \ref{usecase} repr\'esente le diagramme des cas d'utilisation
+de haut niveau. Il contient les deux fonctionalit\'es identifi\'ees plus
+haut (se garer et la gestion du parking) ainsi que les utilisateurs
+d\'efinis auparavant.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=.7]{parking.png}
+	\caption{\label{usecase} Diagramme des cas d'utilisation de haut niveau}
+\end{figure}
+\newpage
+\subsection{Sc\'enarios brefs}
 \subsubsection{Se garer}
 Le client doit d'abord entrer dans le parking, pour cela il doit s'identifier pour pouvoir ensuite payer, il peut alors :
-\begin{enumerate}
+\begin{itemize}
 		\item Prendre un ticket magn\'etique d'entr\'ee qui contiendra les informations sur l'heure d'entr\'ee et permettra ensuite de payer \`a une borne de paiment;
 		\item Ins\'erer une carte d'abonnement d\'ej\`a cr\'edit\'ee qui sera d\'ebit\'ee automatiquement lorsque le client devra sortir;
 		\item Ins\'erer une carte bancaire dont la signature magn\'etique sera identifi\'ee et qui pourra ensuite \^etre d\'ebit\'ee lors de la sortie.
-\end{enumerate}
+\end{itemize}
 
 Ensuite, une fois que le client veut partir, il doit payer. Pour cela il peut :
-\begin{enumerate}
+\begin{itemize}
 		\item Ins\'erer la carte d'abonnement pour sortir, celle-ci sera d\'ebit\'ee automatiquement;
 		\item Ins\'erer la m\^eme carte bancaire qu'il avait ins\'er\'e en entrant, et celle-ci sera \'egalement d\'ebit\'ee du montant ad\'equat;
 		\item Ins\'erer le ticket de sortie dans une borne de paiment, payer avec un moyen de paiment tiers, et prendre le ticket magn\'etique de sortie qui permettra la lev\'ee de la barri\`ere;
-\end{enumerate}
+\end{itemize}
 
 \subsubsection{Gestion du parking}
 Le parking a besoin d'etre maintenu et g\'er\'e. On distingue plusieurs aspects :
-\begin{enumerate}
+\begin{itemize}
 		\item La gestion g\'en\'erale du parking et la coh\'erence de son fonctionnement assur\'ee par un surveillant;
 		\item Le fait d'alimenter en consommable les machines et en monnaie les bornes de paiment.
 		\item L'intervention d'un technicien en cas de panne des machines;
 		\item L'envoi' quotidien \`a la soci\'et\'e des informations relatives aux clients dans le but d'\'etablir des statistiques et les diff\'erentes transactions bancaires \`a effectuer;
-\end{enumerate}
+\end{itemize}
 
 % a réintégrer
 % \section{Gestion du parking}
@@ -210,22 +233,6 @@ Le parking a besoin d'etre maintenu et g\'er\'e. On distingue plusieurs aspects 
 % 	\item[Postcondition] les probl\`emes, s'il y en a, sont r\'esolus
 % 	\item[Variantes] \
 % \end{description}
-
-
-Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des diff\'erents
-\'elements de ces fonctionnalit\'es.
-
-\section{Diagrammes des cas d'utilisation (Use case)}
-La figure \ref{usecase} repr\'esente le diagramme des cas d'utilisation
-de haut niveau. Il contient les deux fonctionalit\'es identifi\'ees plus
-haut (se garer et la gestion du parking) ainsi que les utilisateurs
-d\'efinis auparavant.
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[scale=.7]{parking.png}
-	\caption{\label{usecase} Diagramme des cas d'utilisation de haut niveau}
-\end{figure}
-\newpage
 
 \section{Le client se gare}
 \subsection{Cockburn}
@@ -268,10 +275,11 @@ d\'efinis auparavant.
 	\begin{enumerate}
 		\item Le client passe sous le syst\`eme de d\'etection de hauteur;
 		\item le client passe sur la boucle;
-		\item le client appuye sur un bouton pour r\'ecup\'erer un ticket;
+		\item le client appuye sur un bouton pour r\'ecup\'erer un ticket depuis
+			le distributeur de ticket;
 		\item la barri\`ere se l\`eve;
 		\item le client avance;
-		\item la barri\`ere d\'etecte le passage du client;
+		\item la barri\`ere d\'etecte le passage du client via la boucle;
 		\item la barri\`ere se referme derri\`ere le client;
 		\item le client se gare.
 	\end{enumerate}
@@ -283,19 +291,21 @@ d\'efinis auparavant.
 		\item[2a] le v\'ehicule est trop lourd: la borne le signale au client
 			qui peut alors pr\'evenir le surveillant via un interphone situ\'e
 			sur la borne;
-		\item[3a] \textbf{le client introduit une carte pour rentrer};
+		\item[3a] \textbf{le client choisit de rentrer avec une carte};
 		\item[3b] il n'y a plus de consommables, la barri\`ere pr\'evient
 			le surveillant et demande au client de patienter;
-		\item[6a] la barri\`ere n'a pas d\'et\'ect\'e le passage d'un v\'ehicule
+		\item[6a] la boucle n'a pas d\'et\'ect\'e le passage d'un v\'ehicule
 			en $5$ minutes, elle pr\'evient donc le surveillant puis se referme.
 	\end{enumerate}
 \end{description}
 
+\newpage
 \subsection{Diagramme d'activit\'es}
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=.7]{imgs/act_rentre.jpg}
 \end{figure}
+\newpage
 
 \subsection{Collaboration}
 \begin{figure}[!ht]
@@ -305,10 +315,10 @@ d\'efinis auparavant.
 
 \newpage
 
-\section{Le client introduit une carte pour rentrer}
+\section{Le client choisit de rentrer avec une carte}
 \subsection{Cockburn}
 \begin{description}
-	\item[Cas d'utilisation] le client introduit une carte pour rentrer
+	\item[Cas d'utilisation] le client choisit de rentrer avec une carte
 	\item[Acteur primaire] client
 	\item[Acteur support] surveillant
 	\item[Pr\'econdition] place libre dans le parking
@@ -352,19 +362,19 @@ d\'efinis auparavant.
 	\item[Sc\'enario Primaire] \
 	\begin{enumerate}
 		\item le client s'avance vers la premi\`ere barri\`ere;
-		\item le client introduit son ticket de sortie;
+		\item le client introduit son ticket de sortie dans le lecteur de ticket;
 		\item la premi\`ere barri\`ere se l\`eve;
 		\item le client s'avance sur la boucle;
 		\item la premi\`ere barri\`ere de sortie se referme;
 		\item la seconde barri\`ere de sortie se l\`eve;
 		\item le client sort;
-		\item la seconde barri\`ere d\'etecte le passage du client;
+		\item la boucle d\'et\'ecte le passage du client;
 		\item la deuxi\`eme barri\`ere s'abaisse.
 	\end{enumerate}
 	\item[Postcondition] le client est sorti.
 	\item[Variantes] \
 	\begin{enumerate}
-		\item[2a] \textbf{Le client introduit une carte pour sortir};
+		\item[2a] \textbf{Le client choisit de sortir avec une carte};
 		\item[7a] la barri\`ere n'a pas d\'et\'ect\'e de v\'ehicule en $5$ minutes,
 			elle pr\'evient donc le surveillant puis se referme.
 	\end{enumerate}
@@ -386,10 +396,10 @@ d\'efinis auparavant.
 
 \newpage
 
-\section{Le client introduit une carte pour sortir}
+\section{Le client choisit de sortir avec une carte}
 \subsection{Cockburn}
 \begin{description}
-	\item[Cas d'utilisation] le client introduit une carte pour sortir
+	\item[Cas d'utilisation] le client choisit de sortir avec une carte
 	\item[Acteur primaire] client
 	\item[Acteur support] surveillant
 	\item[Pr\'econdition] le client est entr\'e avec une carte et est \`a
@@ -432,21 +442,21 @@ d\'efinis auparavant.
 	\item[Pr\'econdition] le client est entr\'e avec un ticket et est devant une caisse
 	\item[Sc\'enario Primaire] \
 	\begin{enumerate}
-		\item le client fournit son ticket d'entr\'ee;
+		\item le client fournit son ticket d'entr\'ee dans le lecteur de ticket;
 		\item la caisse indique le montant \`a payer;
 		\item \textbf{le client paye en liquide};
-		\item le client r\'ecup\`ere un ticket de sortie.
+		\item le client r\'ecup\`ere un ticket de sortie dans le distributeur de ticket.
 	\end{enumerate}
 	\item[Postcondition] Le client a pay\'e et a un ticket de sortie
 	\item[Variantes] \
 	\begin{enumerate}
 		\item[1a] le client a perdu son ticket d'entr\'ee, il appuye sur le
-			bouton associ\'e pour pr\'evenir le surveillant;
+			bouton associ\'e et doit payer le prix maximum;
 		\item[1b] le client donne son ticket au surveillant;
 		\item[2a] le montant ne correspond pas ou ne s'affiche pas, le client
 			pr\'evient le surveillant;
 		\item[2b] le surveillant indique le montant \`a payer;
-		\item[3a] \textbf{le client introduit une carte pour payer};
+		\item[3a] \textbf{le client choisit de payer en carte};
 		\item[3b] le client paye en ch\`eque au surveillant;
 		\item[4a] il n'y a plus de consommable, le surveillant est pr\'evenu.
 	\end{enumerate}
@@ -511,10 +521,10 @@ d\'efinis auparavant.
 
 \newpage
 
-\section{Le client introduit une carte pour payer}
+\section{le client choisit de payer en carte}
 \subsection{Cockburn}
 \begin{description}
-	\item[Cas d'utilisation] le client introduit une carte pour payer
+	\item[Cas d'utilisation] le client choisit de payer en carte
 	\item[Acteur primaire] le client
 	\item[Acteur support] le surveillant
 	\item[Pr\'econdition] le client poss\`ede une carte
