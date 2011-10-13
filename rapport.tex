@@ -243,11 +243,11 @@ d\'efinis auparavant.
 	\item[Postcondition] le client s'est gar\'e, a pay\'e et est sorti du parking
 \end{description}
 
-\subsection{Diagramme d'activit\'es}
-\begin{figure}[!ht]
-\centering
-\includegraphics[scale=.7]{imgs/act_segare.jpg}
-\end{figure}
+% \subsection{Diagramme d'activit\'es}
+% \begin{figure}[!ht]
+% \centering
+% \includegraphics[scale=.7]{imgs/act_segare.jpg}
+% \end{figure}
 
 \subsection{Collaboration}
 \begin{figure}[!ht]
@@ -482,6 +482,11 @@ d\'efinis auparavant.
 		\item[1a] le client n'a pas fourni assez de monnaie et n'a
 			pas interagi avec la machine pendant $5$ minutes: la
 			caisse appelle le surveillant;
+		\item[1b] la machines identifie des pi\`eces comme \'etant
+			invalides: elle les rejette;
+		\item[1c] le client appuye sur boutton pour annuler le
+			payement et la machine lui rend les \'eventuelles
+			pi\`eces qu'il aurait rendu;
 		\item[2a] la caisse a un solde suffisant mais pas assez de
 			monnaie: elle rend plus de monnaie, tout en indiquant au
 			surveillant un manque d'esp\`eces;
