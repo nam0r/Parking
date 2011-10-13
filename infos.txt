@@ -1,0 +1,34 @@
+OK - Plan : mettre diag acti à coté des cockburn puis les collaborations
+OK - Scénario bref après le dessin du UC
+
+OK - Supprimer le diagramme d'acti de Le client se gare
+
+OK - Augmenter la taille des diagrammes
+
+Modifier le diagramme page 8
+
+Si problème avec la carte (pas la bonne), on n'appelle pas le surveillant : on affiche erreur
+On doit pouvoir revenir sur 3. 
+Nom du Cockburn : "Le client choisit de rentrer avec un carte"
+Variante 3c : "Echec de l'entrée" --> retour sur 3
+
+Pareil au moment où on paye en caisse et à la sortie.
+
+OK - Paiement en liquide incomplet : si pièces invalides, rejet des pièces, le client doit pouvoir remettre des 
+OK - pièces. L'usager doit aussi pouvoir annuler son paiement en espèces.
+
+OK - (Les diagrammes d'acti ne sont pas dans le même ordre que les Cockburns)
+
+OK - Rajouter dessin de la borne.
+
+OK - Gestion du Parking : Bref
+
+OK - Dans un Bref, pas de numérotation (mais éventuellement des points)
+
+OK - Les Brefs viennent juste après les UC de haut niveau
+
+Mettre d'autres diagrammes de UC
+
+Même nom dans le dessin et dans les diagrammes ("détecteur")
+
+Rajouter diagramme de classes.
