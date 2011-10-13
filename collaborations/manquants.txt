@@ -25,20 +25,20 @@ Collaboration de "Le client sort" :
   On dit que le client s'avance sur la boucle au sol mais on ne traite pas de cas
   où le client est trop lourd. C'est bizarre aussi...
   
-Collaboration de "Le client insère une carte pour sortir" :
-  Il faut par changer le point 3 : "La carte est rendue au client" -> "La borne (ou le lecteur de carte)
-  rend la carte au client".
+--Collaboration de "Le client insère une carte pour sortir" :
+--  Il faut par changer le point 3 : "La carte est rendue au client" -> "La borne (ou le lecteur de carte)
+--  rend la carte au client".
 
   Faut-il mettre l'ordinateur du surveillant ou est-ce un acteur ?
 
-Collaboration de "Gestion du parking" :
-  Les points 4 & 5 se recoupent
-  A revoir : je ne suis pas du tout sûr de ce qu'il faut mettre...
+--Collaboration de "Gestion du parking" :
+--  Les points 4 & 5 se recoupent
+--  A revoir : je ne suis pas du tout sûr de ce qu'il faut mettre...
   
-Collaboration de "Le client paye" :
+--Collaboration de "Le client paye" :
 
-Collaboration de "Le client paye en liquide" :
-  Dans le 2, ce n'est pas la borne qui rend la monnaie mais la caisse.
-  "n'a pas intéragit" -> "n'a pas interagi" : pas d'accent, pas de 't'
+--Collaboration de "Le client paye en liquide" :
+--  Dans le 2, ce n'est pas la borne qui rend la monnaie mais la caisse.
+--  "n'a pas intéragit" -> "n'a pas interagi" : pas d'accent, pas de 't'
 
-Collaboration de "Le client introduit une carte pour payer" :
+--Collaboration de "Le client introduit une carte pour payer" :
