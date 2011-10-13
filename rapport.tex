@@ -149,7 +149,7 @@ C'est elle qui poss\`ede et g\`ere le parking. Elle intervient ici essentielleme
 recevoir les statistiques sur l'utilisation du parking, envoy\'e une fois par jour, au
 m\^eme moment que les transactions bancaires.
 
-\subsection{Fonctionnalit\'es}
+\subsection{Sc\'enarios brefs}
 Les acteurs vont int\'eragir sur le syst\`eme au travers de deux grandes fonctionnalit\'es:
 \begin{enumerate}
 	\item \textit{Se garer};
@@ -179,6 +179,37 @@ Le parking a besoin d'etre maintenu et g\'er\'e. On distingue plusieurs aspects 
 		\item L'intervention d'un technicien en cas de panne des machines;
 		\item L'envoi' quotidien \`a la soci\'et\'e des informations relatives aux clients dans le but d'\'etablir des statistiques et les diff\'erentes transactions bancaires \`a effectuer;
 \end{enumerate}
+
+% a réintégrer
+% \section{Gestion du parking}
+% \subsection{Cockburn}
+% \begin{description}
+% 	\item[Cas d'utilisation] gestion du parking
+% 	\item[Acteur primaire] le syst\`eme
+% 	\item[Acteur support]  la fourri\`ere, le surveillant, le technicien, soci\'et\'e
+% 				de parking
+% 	\item[Pr\'econdition] 
+% 	\item[Sc\'enario Primaire] \
+% 	\begin{enumerate}
+% 		\item Le surveillant appelle la fourri\`ere si un v\'ehicule est
+% 			pr\'esent sur le parking depuis plus de $72$ heures;
+% 		\item le surveillant appelle le technicien en cas de probl\`emes
+% 			techniques sur le parking;
+% 		\item le technicien maintient r\'eguli\`erement les diff\'erents
+% 			\'el\'ements du parking;
+% 		\item le surveillant s'occupe d'alimenter les machines en consommables
+% 			lorsque celles-ci lui signalent un manque;
+% 		\item le surveillant alimente r\'eguli\`erement les caisses en
+% 			monnaie et les bornes en consommables;
+% 		\item le syst\`eme envoie quotidiennement \`a la soci\'et\'e des
+% 			informations relatives aux clients (dans le but d'\'etablir des
+% 			statistiques);
+% 		\item le syst\`eme envoie quotidiennement \`a la soci\'et\'e les
+% 			diff\'erentes transactions bancaires \`a effectuer.
+% 	\end{enumerate}
+% 	\item[Postcondition] les probl\`emes, s'il y en a, sont r\'esolus
+% 	\item[Variantes] \
+% \end{description}
 
 
 Les sc\'enarios Cokburn donnent une description plus pr\'ecise et compl\`ete des diff\'erents
@@ -212,10 +243,10 @@ d\'efinis auparavant.
 	\item[Postcondition] le client s'est gar\'e, a pay\'e et est sorti du parking
 \end{description}
 
-\subsection{Diagramme d'activit\'es}
+\subsection{Diagramme UC}
 \begin{figure}[!ht]
 \centering
-\includegraphics[scale=.7]{imgs/act_segare.jpg}
+\includegraphics[scale=.7]{se_garer.png}
 \end{figure}
 
 \subsection{Collaboration}
@@ -339,11 +370,13 @@ d\'efinis auparavant.
 	\end{enumerate}
 \end{description}
 
+\newpage
 \subsection{Diagramme d'activit\'e}
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=.7]{imgs/act_sort.jpg}
 \end{figure}
+\newpage
 
 \subsection{Collaboration}
 \begin{figure}[!ht]
@@ -366,7 +399,7 @@ d\'efinis auparavant.
 		\item Le client introduit une carte dans le lecteur;
 		\item le lecteur envoie les informations relatives \`a la transaction
 			\`a l'ordinateur du surveillant;
-		\item la carte est rendue au client.
+		\item le lecteur redonne la carte au client.
 	\end{enumerate}
 	\item[Postcondition] la transaction est enregistr\'ee
 	\item[Variantes] \
@@ -389,43 +422,6 @@ d\'efinis auparavant.
 
 \newpage
 
-\section{Gestion du parking}
-\subsection{Cockburn}
-\begin{description}
-	\item[Cas d'utilisation] gestion du parking
-	\item[Acteur primaire] le syst\`eme
-	\item[Acteur support]  la fourri\`ere, le surveillant, le technicien, soci\'et\'e
-				de parking
-	\item[Pr\'econdition] 
-	\item[Sc\'enario Primaire] \
-	\begin{enumerate}
-		\item Le surveillant appelle la fourri\`ere si un v\'ehicule est
-			pr\'esent sur le parking depuis plus de $72$ heures;
-		\item le surveillant appelle le technicien en cas de probl\`emes
-			techniques sur le parking;
-		\item le technicien maintient r\'eguli\`erement les diff\'erents
-			\'el\'ements du parking;
-		\item le surveillant s'occupe d'alimenter les machines en consommables
-			lorsque celles-ci lui signalent un manque;
-		\item le surveillant alimente r\'eguli\`erement les caisses en
-			monnaie et les bornes en consommables;
-		\item le syst\`eme envoie quotidiennement \`a la soci\'et\'e des
-			informations relatives aux clients (dans le but d'\'etablir des
-			statistiques);
-		\item le syst\`eme envoie quotidiennement \`a la soci\'et\'e les
-			diff\'erentes transactions bancaires \`a effectuer.
-	\end{enumerate}
-	\item[Postcondition] les probl\`emes, s'il y en a, sont r\'esolus
-	\item[Variantes] \
-\end{description}
-
-\subsection{Collaboration}
-\begin{figure}[!ht]
-\centering
-\includegraphics[scale=.5]{collaborations/_gestion_parking.png}
-\end{figure}
-
-\newpage
 
 \section{Le client paye}
 \subsection{Cockburn}
@@ -480,18 +476,23 @@ d\'efinis auparavant.
 	\item[Sc\'enario Primaire] \
 	\begin{enumerate}
 		\item le client fournit de la monnaie \`a la caisse;
-		\item la borne rend la monnaie;
+		\item la caisse rend la monnaie;
 	\end{enumerate}
 	\item[Postcondition] le client a pay\'e en liquide
 	\item[Variantes] \
 	\begin{enumerate}
 		\item[1a] le client n'a pas fourni assez de monnaie et n'a
-			pas int\'eragit avec la machine pendant $5$ minutes: la
+			pas interagi avec la machine pendant $5$ minutes: la
 			caisse appelle le surveillant;
-		\item[2a] la borne a un solde suffisant mais pas assez de
+		\item[1b] la machines identifie des pi\`eces comme \'etant
+			invalides: elle les rejette;
+		\item[1c] le client appuye sur boutton pour annuler le
+			payement et la machine lui rend les \'eventuelles
+			pi\`eces qu'il aurait rendu;
+		\item[2a] la caisse a un solde suffisant mais pas assez de
 			monnaie: elle rend plus de monnaie, tout en indiquant au
 			surveillant un manque d'esp\`eces;
-		\item[2b] la borne a un solde inf\'erieur \`a ce qu'elle doit
+		\item[2b] la caisse a un solde inf\'erieur \`a ce qu'elle doit
 			rendre au client: elle pr\'evient le surveillant
 	\end{enumerate}
 \end{description}
