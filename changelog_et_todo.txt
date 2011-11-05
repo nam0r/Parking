@@ -1,0 +1,74 @@
+===== TODO =====
+
+- Dans le diagramme représentant le parking, on a indiqué "Caisse automatique" et "Caisse manuelle" alors que dans tous les scénarios on
+parle de "Borne de paiement" : à changer
+- Dans les Collaborations de "Le client rentre", je ne sais pas si je dois mettre les "Carte de paiement" et "Carte d'abonné" qui
+apparaissent dans le scénario alternatif "Le client choisit de rentrer avec une carte"... Si on les met, il faudrait écrire :
+"Le client choisit de rentrer avec une carte de paiement ou une carte d'abonné"
+- Revoir le schéma du parrking selon les indications de la prof : montrer que l'entrée n'est pas le long de la route (sinon, pas besoin de "ressortir") 
+et que le client a la place de faire demi-tour.
+- Il faut revoir le dessin pour montrer clairement que le 
+- Il faudrait revoir les diagrammes d'activité :
+	Les titres :
+		* Certains n'ont pas de titre
+		* Il y en a un dont le titre est "Une"
+		* Leurs polices n'ont pas l'air d'être les mêmes
+	Le contenu :
+		* Il y a des fautes d'orthographe (ex : "Le surveillant est prévenuE" dans "Le client paye" et "Le client sort")
+		* Il y a des phrases bizarres (ex : "Le client sort A L'AIDE DU surveillant", sans accent sur le "a" au passage)
+		* Des incohérences : majuscule à l'étiquette "Véhicule ok" et pas aux autres dans "Le client rentre"
+			* dans "Le client sort", majuscule après un retour à la ligne : "Le client s'avance Vers la..."
+			* Majuscules à certains et pas à d'autres dans "Le client paye", "Le client paye en liquide" et "Le client sort"
+		* Dans "Le client paye en liquide", je pense que les étiquettes "Solde suffisant mais pas assez de monnaie"
+		et "Solde insuffisant" ont été inversées
+		* Dans "Le client paye" :
+			- je trouve bizarre que "Ticket perdu" soit après "Le client introduit son ticket d'entrée" :
+				il ne peut pas introduire son ticket s'il l'a perdu.
+			- je ne pense pas que ce soit la caisse qui donne un ticket de sortie quand le client paye auprès du surveillant mais
+				le surveillant lui-même.
+		* Dans "Le client choisit de sortir avec une carte" :
+			* La prof nous a dit à la dernière scéance que dans le cas où la carte n'est pas valide, c'est l'écran de la borne qui
+				affiche que la carte n'est pas valide : le surveillant n'a pas besoin d'être prévenu.
+			* "La borne envoie les informations relatives à la transaction" : à qui ?
+		* Dans "Le client sort" :
+			* Est-ce qu'il ne faudrait pas gérer le cas où le client est entré en prenant un ticket mais insère une carte pour sortir ?
+				Et le cas où le ticket est invalide (détérioré par exemple) ?
+		* Dans "Le client choisit de rentrer avec une carte" :
+			* La prof nous a dit à la dernière scéance que dans le cas où la carte n'est pas valide, c'est l'écran de la borne qui
+				affiche que la carte n'est pas valide : le surveillant n'a pas besoin d'être prévenu.
+		* Dans "Le client rentre" :
+			* "Le client passe sous la barrière" : pas la barrière mais le système de détection de hauteur
+			* Véhicule trop lourd -> "Le client sort à l'aide du surveillant" : donc il faut d'abord que la boucle ou le client
+				prévienne le surveillant MAIS a mon avis il n'a pas besoin du surveillant : il faut juste indiquer sur le schéma
+				du parking que l'entrée n'est pas le long de la route (sinon, pas besoin de "ressortir") et que le client a la place
+				de faire demi-tour.
+			* Plus de consommable -> "Le client règle le problème" : pareil, il faut d'abord qu'il soit prévenu par la borne.
+			
+
+
+===== CHANGELOG / INFOS =====
+Scénario Bref : "Se garer" :
+	- "Insérer le ticket de _sortie_ dans une borne de paiement" -> "Insérer le ticket d'_entrée_ dans une borne de paiement"
+
+Scénario Bref "Gestion du parking" :
+	- "L'envoi' quotidien[...]" -> "L'envoi quotidien[...]"
+
+Collaborations "Le client se gare" :
+	- Je n'ai rien changé
+
+Collaborations "Le client rentre" :
+	- J'ai modifié plein de trucs...
+
+
+
+
+
+=== NE PAS TENIR COMPTE : j'avais utilisé les scénarios bref ===
+Scénario "Se garer" :
+	- "Insérer le ticket de _sortie_ dans une borne de paiement" -> "Insérer le ticket d'_entrée_ dans une borne de paiement"
+	- J'ai fait apparaître un rôle "Informations client" comme dans l'exemple de l'ATM diapo 53 du cours
+
+Scénario "Gestion du parking" :
+	- "L'envoi' quotidien[...]" -> "L'envoi quotidien[...]"
+	- J'ai remplacé une occurence de "machines" par "bornes d'entrée et de sortie" pour pouvoir les faire apparaître dans
+	les collaborations.
