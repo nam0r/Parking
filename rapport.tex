@@ -191,7 +191,7 @@ Ensuite, une fois que le client veut partir, il doit payer. Pour cela il peut :
 \begin{itemize}
 		\item Ins\'erer la carte d'abonnement pour sortir, celle-ci sera d\'ebit\'ee automatiquement;
 		\item Ins\'erer la m\^eme carte bancaire qu'il avait ins\'er\'e en entrant, et celle-ci sera \'egalement d\'ebit\'ee du montant ad\'equat;
-		\item Ins\'erer le ticket de sortie dans une borne de paiment, payer avec un moyen de paiment tiers, et prendre le ticket magn\'etique de sortie qui permettra la lev\'ee de la barri\`ere;
+		\item Ins\'erer le ticket d'entr\'ee dans une borne de paiment, payer avec un moyen de paiment tiers, et prendre le ticket magn\'etique de sortie qui permettra la lev\'ee de la barri\`ere;
 \end{itemize}
 
 \subsubsection{Gestion du parking}
@@ -200,7 +200,7 @@ Le parking a besoin d'etre maintenu et g\'er\'e. On distingue plusieurs aspects 
 		\item La gestion g\'en\'erale du parking et la coh\'erence de son fonctionnement assur\'ee par un surveillant;
 		\item Le fait d'alimenter en consommable les machines et en monnaie les bornes de paiment.
 		\item L'intervention d'un technicien en cas de panne des machines;
-		\item L'envoi' quotidien \`a la soci\'et\'e des informations relatives aux clients dans le but d'\'etablir des statistiques et les diff\'erentes transactions bancaires \`a effectuer;
+		\item L'envoi quotidien \`a la soci\'et\'e des informations relatives aux clients dans le but d'\'etablir des statistiques et les diff\'erentes transactions bancaires \`a effectuer;
 \end{itemize}
 
 % a réintégrer
@@ -274,13 +274,13 @@ Le parking a besoin d'etre maintenu et g\'er\'e. On distingue plusieurs aspects 
 	\item[Sc\'enario Primaire] \
 	\begin{enumerate}
 		\item Le client passe sous le syst\`eme de d\'etection de hauteur;
-		\item le client passe sur la boucle;
-		\item le client appuye sur un bouton pour r\'ecup\'erer un ticket depuis
+		\item le client passe sur la boucle au sol;
+		\item le client appuye sur un bouton pour r\'ecup\'erer un ticket d'entr\'ee depuis
 			le distributeur de ticket;
-		\item la barri\`ere se l\`eve;
+		\item la barri\`ere d'entrée se l\`eve;
 		\item le client avance;
-		\item la barri\`ere d\'etecte le passage du client via la boucle;
-		\item la barri\`ere se referme derri\`ere le client;
+		\item la barri\`ere d'entrée d\'etecte le passage du client via la boucle au sol;
+		\item la barri\`ere d'entrée se referme derri\`ere le client;
 		\item le client se gare.
 	\end{enumerate}
 	\item[Postcondition] le client est rentr\'e dans le parking et a trouv\'e une place
@@ -288,13 +288,13 @@ Le parking a besoin d'etre maintenu et g\'er\'e. On distingue plusieurs aspects 
 	\begin{enumerate}
 		\item[1a] Le v\'ehicule est trop haut et ne peut rentrer dans
 			le parking;
-		\item[2a] le v\'ehicule est trop lourd: la borne le signale au client
-			qui peut alors pr\'evenir le surveillant via un interphone situ\'e
-			sur la borne;
+		\item[2a] le v\'ehicule est trop lourd: la borne d'entr\'ee le signale au client gr\^ace
+                        \`a son \'ecran d'affichage. Le client peut alors pr\'evenir le 
+                        surveillant via un interphone situ\'e sur la borne d'entr\'ee;
 		\item[3a] \textbf{le client choisit de rentrer avec une carte};
-		\item[3b] il n'y a plus de consommables, la barri\`ere pr\'evient
-			le surveillant et demande au client de patienter;
-		\item[6a] la boucle n'a pas d\'et\'ect\'e le passage d'un v\'ehicule
+		\item[3b] il n'y a plus de consommables, la barri\`ere d'entr\'ee pr\'evient
+			le surveillant et demande au client de patienter via l'\'ecran d'affichage;
+		\item[6a] la boucle au sol n'a pas d\'et\'ect\'e le passage d'un v\'ehicule
 			en $5$ minutes, elle pr\'evient donc le surveillant puis se referme.
 	\end{enumerate}
 \end{description}
