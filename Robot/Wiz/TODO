@@ -1,0 +1,10 @@
+EtatRobotVide (et etc) doivent pouvoir changer l'état => Robot::changeEtat()
+
+Fait:
+Robot
+EtatRobot
+Position
+Obstacle
+Objet
+~Fige
+~EnRoute

@@ -1,0 +1,6 @@
+Pour compiler le code dans un terminal linux :
+$ cd src
+$ make
+
+puis pour l'executer :
+$ ./appli
