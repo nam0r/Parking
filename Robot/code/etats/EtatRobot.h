@@ -1,21 +1,17 @@
-#ifndef __ROBOT__
-#define __ROBOT__
+#ifndef __ETAT_ROBOT__
+#define __ETAT_ROBOT__
 
 #include <string>
 #include "Position.h"
 #include "Objet.h"
 #include "Obstacle.h"
-#include "etats/EtatRobot.h"
 
-class Robot {
+class EtatRobot {
 
   private:
-    Position _position;
-    std::string _direction;
-    EtatRobot * _etat;
 
   public:
-    Robot();
+    EtatRobot();
     void avancer(int x, int y);
     void tourner(std::string direction);
     void saisir(Objet o);
@@ -25,8 +21,11 @@ class Robot {
     int evaluerObstacle();
     void figer();
     void repartir();
-    void afficher();
-    void changerEtat(EtatRobot * nouvelEtat);
+
+    class MouvementImpossibleException;
+    class ObjetAbsentException;
+    class DejaChargeException;
+    class PasFaceAObstacleException;
 };
 
 #endif
