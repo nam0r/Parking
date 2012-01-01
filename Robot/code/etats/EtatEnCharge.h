@@ -5,11 +5,17 @@
 
 class EtatEnCharge : public EtatEnRoute {
 	private:
+		static EtatEnCharge* _instance;
+		EtatEnCharge();
 	public:
-		void avancer(int x, int y);
-    	void tourner(std::string direction);
-    	void rencontrerObstacle(Obstacle o);
-    	void peser();
+		static EtatEnCharge* getInstance();
+
+		virtual std::string getNom();
+
+		virtual void avancer(int x, int y);
+    	virtual void tourner(std::string direction);
+    	virtual void rencontrerObstacle(Obstacle o);
+    	virtual int peser();
 };
 
 #endif

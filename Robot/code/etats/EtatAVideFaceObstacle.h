@@ -5,10 +5,16 @@
 
 class EtatAVideFaceObstacle : public EtatEnRoute {
 	private:
+		static EtatAVideFaceObstacle* _instance;
+		EtatAVideFaceObstacle();
 	public:
-		int evaluerObstacle();
-		void tourner(std::string direction);
-   		void saisir(Objet o);
+		static EtatAVideFaceObstacle* getInstance();
+
+		virtual std::string getNom();
+
+		virtual int evaluerObstacle();
+		virtual void tourner(std::string direction);
+   		virtual void saisir(Objet o);
 };
 
 #endif

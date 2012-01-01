@@ -5,8 +5,14 @@
 
 class EtatFige : public EtatRobot {
 	private:
+		static EtatFige* _instance;
+		EtatFige();
 	public:
-		void repartir();	
+		static EtatFige* getInstance();
+		
+		virtual std::string getNom();
+
+		virtual void repartir();
 };
 
 #endif

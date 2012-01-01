@@ -5,10 +5,16 @@
 
 class EtatEnChargeFaceObstacle : public EtatEnRoute {
 	private:
+		static EtatEnChargeFaceObstacle* _instance;
+		EtatEnChargeFaceObstacle();
 	public:
-		void tourner(std::string direction);
-		void poser();
-    	int peser();
+		static EtatEnChargeFaceObstacle* getInstance();
+
+		virtual std::string getNom();
+
+		virtual void tourner(std::string direction);
+		virtual void poser();
+    	virtual int peser();
 };
 
 #endif

@@ -6,7 +6,9 @@
 class EtatEnRoute : public EtatRobot {
 	private:
 	public:
-		void figer();	
+		virtual void figer();
+
+		virtual std::string getNom() = 0;
 };
 
 #endif

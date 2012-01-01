@@ -8,24 +8,26 @@
 
 class EtatRobot {
 
-  private:
+  protected:
+    EtatRobot();
 
   public:
-    EtatRobot();
-    void avancer(int x, int y);
-    void tourner(std::string direction);
-    void saisir(Objet o);
-    void poser();
-    int peser();
-    void rencontrerObstacle(Obstacle o);
-    int evaluerObstacle();
-    void figer();
-    void repartir();
+    virtual void avancer(int x, int y);
+    virtual void tourner(std::string direction);
+    virtual void saisir(Objet o);
+    virtual void poser();
+    virtual int peser();
+    virtual void rencontrerObstacle(Obstacle o);
+    virtual int evaluerObstacle();
+    virtual void figer();
+    virtual void repartir();
 
-    class MouvementImpossibleException;
-    class ObjetAbsentException;
-    class DejaChargeException;
-    class PasFaceAObstacleException;
+    virtual std::string getNom() = 0;
+
+    class MouvementImpossibleException {};
+    class ObjetAbsentException {};
+    class DejaChargeException {};
+    class PasFaceAObstacleException {};
 };
 
 #endif
