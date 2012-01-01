@@ -2,44 +2,45 @@
 
 using namespace std;
 
-Robot::Robot() {
-
+Robot::Robot() :
+_direction("EAST") {
+	//_etat = 
 }
 
 void Robot::avancer(int x, int y) {
-	_etat.avancer(x,y);
+	_etat->avancer(x,y);
 }
 
-void Robot::tourner(direction) {
-	_etat.tourner(direction);
+void Robot::tourner(string direction) {
+	_etat->tourner(direction);
 }
 
 void Robot::saisir(Objet o) {
-	_etat.saisir(o);
+	_etat->saisir(o);
 }
 
 void Robot::poser() {
-	_etat.poser();
+	_etat->poser();
 }
 
 int Robot::peser() {
-	_etat.peser();
+	_etat->peser();
 }
 
 void Robot::rencontrerObstacle(Obstacle o) {
-	_etat.rencontrerObstacle(o);
+	_etat->rencontrerObstacle(o);
 }
 
 int Robot::evaluerObstacle() {
-	_etat.evaluerObstacle();
+	_etat->evaluerObstacle();
 }
 
 void Robot::figer() {
-	_etat.figer();
+	_etat->figer();
 }
 
 void Robot::repartir() {
-	_etat.repartir();
+	_etat->repartir();
 }
 
 void Robot::afficher() {

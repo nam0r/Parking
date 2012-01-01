@@ -2,9 +2,9 @@
 #define __ETAT_ROBOT__
 
 #include <string>
-#include "Position.h"
-#include "Objet.h"
-#include "Obstacle.h"
+#include "../Position.h"
+#include "../Objet.h"
+#include "../Obstacle.h"
 
 class EtatRobot {
 

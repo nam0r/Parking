@@ -7,6 +7,7 @@ class Position {
 		int _y;
 
 	public:
+		Position();
 		void setX(int x);
 		void setY(int y);
 		int getX();

@@ -1,4 +1,4 @@
-#include "Obstacle"
+#include "Obstacle.h"
 
 int Obstacle::getHauteur() {
 	

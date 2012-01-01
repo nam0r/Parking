@@ -10,7 +10,7 @@ void EtatRobot::avancer(int x, int y) {
 
 }
 
-void EtatRobot::tourner(direction) {
+void EtatRobot::tourner(string direction) {
 
 }
 

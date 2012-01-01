@@ -2,12 +2,13 @@
 #define __ROBOT__
 
 #include <string>
+#include "RobotAbstrait.h"
 #include "Position.h"
 #include "Objet.h"
 #include "Obstacle.h"
 #include "etats/EtatRobot.h"
 
-class Robot {
+class Robot : public RobotAbstrait {
 
   private:
     Position _position;
