@@ -10,7 +10,7 @@ using namespace std;
 
 map<string, EtatRobot*> EtatRobot::_etats;
 
-EtatRobot* EtatRobot::_etatCourant = EtatFige::getInstance();
+EtatRobot* EtatRobot::_etatCourant = EtatAVide::getInstance();
 
 EtatRobot::EtatRobot() {}
 

@@ -6,7 +6,6 @@ int main() {
 	AfficheurConsole console(&robot);
 	robot.attache(&console);
 
-	robot.repartir();
-
 	robot.figer();
+	robot.repartir();
 }

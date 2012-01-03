@@ -1,7 +1,5 @@
 #include "EtatFige.h"
 
-#include "EtatAVide.h"
-
 using namespace std;
 
 EtatFige* EtatFige::_instance = NULL;
@@ -14,7 +12,7 @@ EtatFige* EtatFige::getInstance() {
 
 EtatFige::EtatFige() : EtatRobot("EtatFige") {
 	EtatRobot::_etats[getNom()] = this;
-	_dernierEtat = EtatAVide::getInstance();
+	_dernierEtat = NULL;
 }
 
 void EtatFige::repartir() {
