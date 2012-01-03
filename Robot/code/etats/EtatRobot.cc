@@ -1,17 +1,18 @@
 #include "EtatRobot.h"
 
 #include "EtatFige.h"
+#include "EtatEnCharge.h"
+#include "EtatEnChargeFaceObstacle.h"
+#include "EtatAVide.h"
+#include "EtatAVideFaceObstacle.h"
 
 using namespace std;
 
 map<string, EtatRobot*> EtatRobot::_etats;
 
-//string EtatRobot::_etatCourant = "EtatFige";
 EtatRobot* EtatRobot::_etatCourant = EtatFige::getInstance();
 
-EtatRobot::EtatRobot() {
-	//EtatFige::getInstance();
-}
+EtatRobot::EtatRobot() {}
 
 EtatRobot::EtatRobot(string nom) { _nom = nom; }
 
@@ -30,8 +31,12 @@ EtatRobot* EtatRobot::getEtatCourant() {
 	return _etatCourant;
 }
 
-void EtatRobot::changerEtat(EtatRobot * etat) {
-	_etatCourant = etat;
+void EtatRobot::changerEtat(string nom) {
+	if(_etats.find(nom) == _etats.end()) {
+		cerr << "L'etat nommé " << nom << " n'existe pas !" << endl;
+		exit(EXIT_FAILURE);
+	}
+	_etatCourant = _etats[nom];
 }
 
 void EtatRobot::avancer(int x, int y) {

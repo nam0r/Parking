@@ -18,13 +18,14 @@ EtatAVide::EtatAVide() : EtatEnRoute("EtatAVide") {
 }
 
 void EtatAVide::avancer(int x, int y) {
-	
+	cout << "EtatAVide::avancer" << endl;
 }
 
 void EtatAVide::tourner(std::string direction) {
-	
+	cout << "EtatAVide::tourner" << endl;
 }
 
 void EtatAVide::rencontrerObstacle(Obstacle o) {
-	
+	cout << "EtatAVide::rencontrerObstacle" << endl;
+	changerEtat("EtatAVideFaceObstacle");
 }

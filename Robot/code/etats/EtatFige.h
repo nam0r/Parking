@@ -7,10 +7,12 @@ class EtatFige : public EtatRobot {
 	private:
 		static EtatFige* _instance;
 		EtatFige();
+		EtatRobot* _dernierEtat;
 	public:
 		static EtatFige* getInstance();
 
 		virtual void repartir();
+		void setDernierEtat(EtatRobot * etat);
 };
 
 #endif

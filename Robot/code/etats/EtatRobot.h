@@ -16,7 +16,6 @@ class EtatRobot {
 		EtatRobot(std::string nom);
 		std::string _nom;
 		static std::map<std::string, EtatRobot*> _etats;
-		//static std::string _etatCourant;
 		static EtatRobot * _etatCourant;
 
 	public:
@@ -32,7 +31,7 @@ class EtatRobot {
 		virtual void repartir();
 
 		static EtatRobot* getEtatCourant();
-		static void changerEtat(EtatRobot * etat);
+		static void changerEtat(std::string nom);
 
 		std::string getNom();
 
