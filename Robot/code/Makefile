@@ -1,6 +1,6 @@
 CC= g++
 
-OBJECTS= AfficheurConsole.o EtatAVide.o EtatAVideFaceObstacle.o EtatEnCharge.o EtatEnChargeFaceObstacle.o EtatEnRoute.o EtatFige.o EtatRobot.o main.o Objet.o Obstacle.o Position.o Robot.o RobotAbstrait.o
+OBJECTS= AfficheurConsole.o Commande.o Appel.o CommandeFiger.o CommandePeserObjet.o CommandeAvancer.o CommandeSaisir.o CommandeEvaluerObjet.o CommandeRepartir.o CommandeTourner.o CommandePoser.o Invocateur.o LecteurFichier.o EtatAVide.o EtatAVideFaceObstacle.o EtatEnCharge.o EtatEnChargeFaceObstacle.o EtatEnRoute.o EtatFige.o EtatRobot.o main.o Objet.o Obstacle.o Position.o Robot.o RobotAbstrait.o
 
 TARGET= robot
 
@@ -9,6 +9,42 @@ $(TARGET) : $(OBJECTS)
 
 AfficheurConsole.o : AfficheurConsole.cc AfficheurConsole.h Robot.h RobotObservateur.h
 	$(CC) -o AfficheurConsole.o -c AfficheurConsole.cc
+
+Commande.o : commandes/Commande.cc commandes/Commande.h
+	$(CC) -o Commande.o -c commandes/Commande.cc
+	
+Appel.o : commandes/Appel.cc commandes/Appel.h
+	$(CC) -o Appel.o -c commandes/Appel.cc
+	
+CommandeFiger.o : commandes/CommandeFiger.cc commandes/CommandeFiger.h
+	$(CC) -o CommandeFiger.o -c commandes/CommandeFiger.cc
+	
+CommandePeserObjet.o : commandes/CommandePeserObjet.cc commandes/CommandePeserObjet.h
+	$(CC) -o CommandePeserObjet.o -c commandes/CommandePeserObjet.cc
+	
+CommandeAvancer.o : commandes/CommandeAvancer.cc commandes/CommandeAvancer.h
+	$(CC) -o CommandeAvancer.o -c commandes/CommandeAvancer.cc
+	
+CommandeSaisir.o : commandes/CommandeSaisir.cc commandes/CommandeSaisir.h
+	$(CC) -o CommandeSaisir.o -c commandes/CommandeSaisir.cc
+	
+CommandeEvaluerObjet.o : commandes/CommandeEvaluerObjet.cc commandes/CommandeEvaluerObjet.h
+	$(CC) -o CommandeEvaluerObjet.o -c commandes/CommandeEvaluerObjet.cc
+	
+CommandeRepartir.o : commandes/CommandeRepartir.cc commandes/CommandeRepartir.h
+	$(CC) -o CommandeRepartir.o -c commandes/CommandeRepartir.cc
+	
+CommandeTourner.o : commandes/CommandeTourner.cc commandes/CommandeTourner.h
+	$(CC) -o CommandeTourner.o -c commandes/CommandeTourner.cc
+	
+CommandePoser.o : commandes/CommandePoser.cc commandes/CommandePoser.h
+	$(CC) -o CommandePoser.o -c commandes/CommandePoser.cc
+	
+Invocateur.o : commandes/Invocateur.cc commandes/Invocateur.h
+	$(CC) -o Invocateur.o -c commandes/Invocateur.cc
+	
+LecteurFichier.o : commandes/LecteurFichier.cc commandes/LecteurFichier.h
+	$(CC) -o LecteurFichier.o -c commandes/LecteurFichier.cc
 
 EtatAVide.o : etats/EtatAVide.cc etats/EtatAVide.h etats/EtatEnRoute.h 
 	$(CC) -o EtatAVide.o -c etats/EtatAVide.cc
