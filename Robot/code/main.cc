@@ -7,4 +7,6 @@ int main() {
 	robot.attache(&console);
 
 	robot.repartir();
+
+	robot.figer();
 }
