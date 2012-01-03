@@ -6,10 +6,11 @@ using namespace std;
 
 map<string, EtatRobot*> EtatRobot::_etats;
 
-string EtatRobot::_etatCourant = "EtatFige";
+//string EtatRobot::_etatCourant = "EtatFige";
+EtatRobot* EtatRobot::_etatCourant = EtatFige::getInstance();
 
 EtatRobot::EtatRobot() {
-	EtatFige::getInstance();
+	//EtatFige::getInstance();
 }
 
 EtatRobot::EtatRobot(string nom) { _nom = nom; }
@@ -19,11 +20,18 @@ string EtatRobot::getNom() {
 }
 
 EtatRobot* EtatRobot::getEtatCourant() {
+	/*
 	if(_etats.find(_etatCourant) == _etats.end()) {
 		cerr << "L'etat nommé " << _etatCourant << " n'existe pas !" << endl;
 		exit(EXIT_FAILURE);
 	}
 	return _etats[_etatCourant];
+	*/
+	return _etatCourant;
+}
+
+void EtatRobot::changerEtat(EtatRobot * etat) {
+	_etatCourant = etat;
 }
 
 void EtatRobot::avancer(int x, int y) {
@@ -34,7 +42,7 @@ void EtatRobot::tourner(string direction) {
 	throw EtatRobot::Exception(getNom(), "tourner");
 }
 
-void EtatRobot::saisir(Objet o) {
+void EtatRobot::saisir(Objet * o) {
 	throw EtatRobot::Exception(getNom(), "saisir");
 }
 
@@ -46,7 +54,7 @@ int EtatRobot::peser() {
 	throw EtatRobot::Exception(getNom(), "peser");
 }
 
-void EtatRobot::rencontrerObstacle(Obstacle o) {
+void EtatRobot::rencontrerObstacle(Obstacle * o) {
 	throw EtatRobot::Exception(getNom(), "rencontrerObstacle");
 }
 
