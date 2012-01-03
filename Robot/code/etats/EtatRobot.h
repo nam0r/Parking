@@ -16,21 +16,23 @@ class EtatRobot {
 		EtatRobot(std::string nom);
 		std::string _nom;
 		static std::map<std::string, EtatRobot*> _etats;
-		static std::string _etatCourant;
+		//static std::string _etatCourant;
+		static EtatRobot * _etatCourant;
 
 	public:
 		EtatRobot();
 		virtual void avancer(int x, int y);
 		virtual void tourner(std::string direction);
-		virtual void saisir(Objet o);
+		virtual void saisir(Objet * o);
 		virtual void poser();
 		virtual int peser();
-		virtual void rencontrerObstacle(Obstacle o);
+		virtual void rencontrerObstacle(Obstacle * o);
 		virtual int evaluerObstacle();
 		virtual void figer();
 		virtual void repartir();
 
 		static EtatRobot* getEtatCourant();
+		static void changerEtat(EtatRobot * etat);
 
 		std::string getNom();
 

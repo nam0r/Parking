@@ -6,6 +6,7 @@ class Obstacle {
 		int _hauteur;
 
 	public:
+		Obstacle(int hauteur = 0);
 		int getHauteur();
 };
 
