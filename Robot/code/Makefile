@@ -1,6 +1,6 @@
 CC= g++
 
-OBJECTS= AfficheurConsole.o Commande.o Appel.o CommandeFiger.o CommandePeserObjet.o CommandeAvancer.o CommandeSaisir.o CommandeEvaluerObjet.o CommandeRepartir.o CommandeTourner.o CommandePoser.o EtatAVide.o EtatAVideFaceObstacle.o EtatEnCharge.o EtatEnChargeFaceObstacle.o EtatEnRoute.o EtatFige.o EtatRobot.o main.o Objet.o Obstacle.o Position.o Robot.o RobotAbstrait.o
+OBJECTS= AfficheurConsole.o Commande.o Appel.o CommandeFiger.o CommandePeserObjet.o CommandeAvancer.o CommandeSaisir.o CommandeEvaluerObjet.o CommandeRepartir.o CommandeTourner.o CommandePoser.o Invocateur.o LecteurFichier.o EtatAVide.o EtatAVideFaceObstacle.o EtatEnCharge.o EtatEnChargeFaceObstacle.o EtatEnRoute.o EtatFige.o EtatRobot.o main.o Objet.o Obstacle.o Position.o Robot.o RobotAbstrait.o
 
 TARGET= robot
 
@@ -39,6 +39,12 @@ CommandeTourner.o : commandes/CommandeTourner.cc commandes/CommandeTourner.h
 	
 CommandePoser.o : commandes/CommandePoser.cc commandes/CommandePoser.h
 	$(CC) -o CommandePoser.o -c commandes/CommandePoser.cc
+	
+Invocateur.o : commandes/Invocateur.cc commandes/Invocateur.h
+	$(CC) -o Invocateur.o -c commandes/Invocateur.cc
+	
+LecteurFichier.o : commandes/LecteurFichier.cc commandes/LecteurFichier.h
+	$(CC) -o LecteurFichier.o -c commandes/LecteurFichier.cc
 
 EtatAVide.o : etats/EtatAVide.cc etats/EtatAVide.h etats/EtatEnRoute.h 
 	$(CC) -o EtatAVide.o -c etats/EtatAVide.cc
