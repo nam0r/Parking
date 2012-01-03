@@ -10,10 +10,8 @@ EtatEnCharge* EtatEnCharge::getInstance() {
 	return _instance;
 }
 
-EtatEnCharge::EtatEnCharge() {}
-
-string EtatEnCharge::getNom() {
-	return "EtatEnCharge";
+EtatEnCharge::EtatEnCharge() : EtatEnRoute("EtatEnCharge") {
+	EtatRobot::_etats[getNom()] = this;
 }
 
 void EtatEnCharge::avancer(int x, int y) {

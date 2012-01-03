@@ -10,10 +10,8 @@ EtatEnChargeFaceObstacle* EtatEnChargeFaceObstacle::getInstance() {
 	return _instance;
 }
 
-EtatEnChargeFaceObstacle::EtatEnChargeFaceObstacle() {}
-
-string EtatEnChargeFaceObstacle::getNom() {
-	return "EtatEnChargeFaceObstacle";
+EtatEnChargeFaceObstacle::EtatEnChargeFaceObstacle() : EtatEnRoute("EtatEnChargeFaceObstacle") {
+	EtatRobot::_etats[getNom()] = this;
 }
 
 void EtatEnChargeFaceObstacle::tourner(std::string direction) {

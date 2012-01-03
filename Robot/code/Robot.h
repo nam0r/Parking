@@ -13,7 +13,7 @@ class Robot : public RobotAbstrait {
   private:
     Position _position;
     std::string _direction;
-    EtatRobot * _etat;
+    EtatRobot _etat;
 
   public:
     Robot();
@@ -27,7 +27,12 @@ class Robot : public RobotAbstrait {
     void figer();
     void repartir();
     void afficher();
-    void changerEtat(EtatRobot * nouvelEtat);
+    //void changerEtat(EtatRobot * nouvelEtat);
+
+    // Getters
+    Position getPosition();
+    std::string getDirection();
+    EtatRobot * getEtat();
 };
 
 #endif

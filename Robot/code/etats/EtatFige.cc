@@ -10,10 +10,8 @@ EtatFige* EtatFige::getInstance() {
 	return _instance;
 }
 
-EtatFige::EtatFige() {}
-
-string EtatFige::getNom() {
-	return "EtatFige";
+EtatFige::EtatFige() : EtatRobot("EtatFige") {
+	EtatRobot::_etats[getNom()] = this;
 }
 
 void EtatFige::repartir() {

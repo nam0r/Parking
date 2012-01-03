@@ -2,6 +2,7 @@
 
 using namespace std;
 
+/*
 template <typename Obs>
 void RobotAbstrait::attache(Obs * obs) {
 	RobotObservateur * ro = dynamic_cast<RobotObservateur*>(obs);
@@ -25,3 +26,4 @@ void RobotAbstrait::detache(Obs * obs) {
 void RobotAbstrait::notifie() {
 	for_each(_observateurs.begin(), _observateurs.end(), mem_fun(&RobotObservateur::miseAJour));
 }
+*/

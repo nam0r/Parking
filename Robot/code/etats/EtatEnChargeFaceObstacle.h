@@ -10,8 +10,6 @@ class EtatEnChargeFaceObstacle : public EtatEnRoute {
 	public:
 		static EtatEnChargeFaceObstacle* getInstance();
 
-		virtual std::string getNom();
-
 		virtual void tourner(std::string direction);
 		virtual void poser();
     	virtual int peser();

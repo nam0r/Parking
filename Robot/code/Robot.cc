@@ -3,50 +3,67 @@
 using namespace std;
 
 Robot::Robot() :
-_direction("EAST") {
-	//_etat = 
+	_direction("E") {
 }
 
 void Robot::avancer(int x, int y) {
-	_etat->avancer(x,y);
+	_etat.getEtatCourant()->avancer(x,y);
 }
 
 void Robot::tourner(string direction) {
-	_etat->tourner(direction);
+	_etat.getEtatCourant()->tourner(direction);
 }
 
 void Robot::saisir(Objet o) {
-	_etat->saisir(o);
+	_etat.getEtatCourant()->saisir(o);
 }
 
 void Robot::poser() {
-	_etat->poser();
+	_etat.getEtatCourant()->poser();
 }
 
 int Robot::peser() {
-	_etat->peser();
+	_etat.getEtatCourant()->peser();
 }
 
 void Robot::rencontrerObstacle(Obstacle o) {
-	_etat->rencontrerObstacle(o);
+	_etat.getEtatCourant()->rencontrerObstacle(o);
 }
 
 int Robot::evaluerObstacle() {
-	_etat->evaluerObstacle();
+	_etat.getEtatCourant()->evaluerObstacle();
 }
 
 void Robot::figer() {
-	_etat->figer();
+	_etat.getEtatCourant()->figer();
 }
 
 void Robot::repartir() {
-	_etat->repartir();
+	_etat.getEtatCourant()->repartir();
 }
 
 void Robot::afficher() {
 
 }
 
+/*
 void Robot::changerEtat(EtatRobot * nouvelEtat) {
 	_etat = nouvelEtat;
+}
+*/
+
+/* ******** *
+ * Gettters *
+ * ******** */
+
+Position Robot::getPosition() {
+	return _position;
+}
+
+std::string Robot::getDirection() {
+	return _direction;
+}
+
+EtatRobot * Robot::getEtat() {
+	return &_etat;
 }

@@ -4,11 +4,10 @@
 #include "EtatRobot.h"
 
 class EtatEnRoute : public EtatRobot {
-	private:
+	protected:
+		EtatEnRoute(std::string nom);
 	public:
 		virtual void figer();
-
-		virtual std::string getNom() = 0;
 };
 
 #endif

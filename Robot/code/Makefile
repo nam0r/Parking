@@ -28,7 +28,7 @@ EtatEnRoute.o : etats/EtatEnRoute.cc etats/EtatEnRoute.h etats/EtatRobot.h
 EtatFige.o : etats/EtatFige.cc etats/EtatFige.h etats/EtatRobot.h 
 	$(CC) -o EtatFige.o -c etats/EtatFige.cc
 
-EtatRobot.o : etats/EtatRobot.cc etats/EtatRobot.h Position.h Objet.h Obstacle.h 
+EtatRobot.o : etats/EtatRobot.cc etats/EtatRobot.h Position.h Objet.h Obstacle.h
 	$(CC) -o EtatRobot.o -c etats/EtatRobot.cc
 
 main.o : main.cc  Position.h Objet.h Obstacle.h AfficheurConsole.h

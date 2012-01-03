@@ -9,8 +9,6 @@ class EtatFige : public EtatRobot {
 		EtatFige();
 	public:
 		static EtatFige* getInstance();
-		
-		virtual std::string getNom();
 
 		virtual void repartir();
 };

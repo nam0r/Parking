@@ -10,10 +10,8 @@ EtatAVideFaceObstacle* EtatAVideFaceObstacle::getInstance() {
 	return _instance;
 }
 
-EtatAVideFaceObstacle::EtatAVideFaceObstacle() {}
-
-string EtatAVideFaceObstacle::getNom() {
-	return "EtatAVideFaceObstacle";
+EtatAVideFaceObstacle::EtatAVideFaceObstacle() : EtatEnRoute("EtatAVideFaceObstacle") {
+	EtatRobot::_etats[getNom()] = this;
 }
 
 int EtatAVideFaceObstacle::evaluerObstacle() {

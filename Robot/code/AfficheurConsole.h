@@ -1,6 +1,7 @@
 #ifndef __AFFICHEUR_CONSOLE__
 #define __AFFICHEUR_CONSOLE__
 
+#include <sstream>
 #include "Robot.h"
 #include "RobotObservateur.h"
 

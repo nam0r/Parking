@@ -5,15 +5,16 @@ using namespace std;
 EtatAVide* EtatAVide::_instance = NULL;
 
 EtatAVide* EtatAVide::getInstance() {
-	if(_instance == NULL)
+	if(_instance == NULL) {
 		_instance = new EtatAVide();
+		//EtatRobot::_etats[_instance->getNom()] = _instance;
+	}
 	return _instance;
 }
 
-EtatAVide::EtatAVide() {}
-
-string EtatAVide::getNom() {
-	return "EtatAVide";
+EtatAVide::EtatAVide() : EtatEnRoute("EtatAVide") {
+	//EtatRobot::_etats[_instance->getNom()] = _instance;
+	EtatRobot::_etats[getNom()] = this;
 }
 
 void EtatAVide::avancer(int x, int y) {

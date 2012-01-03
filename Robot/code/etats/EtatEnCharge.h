@@ -10,8 +10,6 @@ class EtatEnCharge : public EtatEnRoute {
 	public:
 		static EtatEnCharge* getInstance();
 
-		virtual std::string getNom();
-
 		virtual void avancer(int x, int y);
     	virtual void tourner(std::string direction);
     	virtual void rencontrerObstacle(Obstacle o);
