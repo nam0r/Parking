@@ -26,9 +26,22 @@ int main() {
 	
 	robot.evaluerObstacle();
 	robot.saisir(ob);
-	robot.poser();
-	robot.saisir(ob);
 	robot.peser();
 	robot.tourner("E");
+	
+	robot.avancer(7, 3);
+	robot.tourner("W");
+	robot.peser();
+	
+	robot.rencontrerObstacle(o);
+	
+	robot.poser();
+	
+    //interdit
+	try {
+		robot.rencontrerObstacle(o);
+	} catch(exception &e) {
+		cerr << e.what() << endl;
+	}
 	
 }
