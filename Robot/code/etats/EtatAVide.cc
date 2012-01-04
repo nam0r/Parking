@@ -25,7 +25,7 @@ void EtatAVide::tourner(std::string direction) {
 	cout << "EtatAVide::tourner" << endl;
 }
 
-void EtatAVide::rencontrerObstacle(Obstacle o) {
+void EtatAVide::rencontrerObstacle(Obstacle * o) {
 	cout << "EtatAVide::rencontrerObstacle" << endl;
 	changerEtat("EtatAVideFaceObstacle");
 }

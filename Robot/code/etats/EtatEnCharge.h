@@ -12,7 +12,7 @@ class EtatEnCharge : public EtatEnRoute {
 
 		virtual void avancer(int x, int y);
     	virtual void tourner(std::string direction);
-    	virtual void rencontrerObstacle(Obstacle o);
+    	virtual void rencontrerObstacle(Obstacle * o);
     	virtual int peser();
 };
 

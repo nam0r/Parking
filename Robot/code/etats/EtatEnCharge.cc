@@ -22,7 +22,7 @@ void EtatEnCharge::tourner(std::string direction) {
 	cout << "EtatEnCharge::tourner" << endl;	
 }
 
-void EtatEnCharge::rencontrerObstacle(Obstacle o) {
+void EtatEnCharge::rencontrerObstacle(Obstacle * o) {
 	cout << "EtatEnCharge::avancer" << endl;
 	changerEtat("EtatEnChargeFaceObstacle");
 }

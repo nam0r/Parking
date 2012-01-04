@@ -21,6 +21,9 @@ string EtatRobot::getNom() {
 }
 
 EtatRobot* EtatRobot::getEtatCourant() {
+	EtatAVideFaceObstacle::getInstance();
+	EtatEnChargeFaceObstacle::getInstance();
+	EtatEnCharge::getInstance();
 	/*
 	if(_etats.find(_etatCourant) == _etats.end()) {
 		cerr << "L'etat nommé " << _etatCourant << " n'existe pas !" << endl;

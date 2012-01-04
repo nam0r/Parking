@@ -12,7 +12,7 @@ class EtatAVideFaceObstacle : public EtatEnRoute {
 
 		virtual int evaluerObstacle();
 		virtual void tourner(std::string direction);
-   		virtual void saisir(Objet o);
+   		virtual void saisir(Objet * o);
 };
 
 #endif

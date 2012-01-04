@@ -23,7 +23,7 @@ void EtatAVideFaceObstacle::tourner(std::string direction) {
 	changerEtat("EtatAVide");
 }
 
-void EtatAVideFaceObstacle::saisir(Objet o) {
+void EtatAVideFaceObstacle::saisir(Objet * o) {
 	cout << "EtatAVideFaceObstacle::saisir" << endl;
 	changerEtat("EtatEnChargeFaceObstacle");
 }
