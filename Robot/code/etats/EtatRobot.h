@@ -15,7 +15,7 @@ class EtatRobot {
 	protected:
 		EtatRobot(std::string nom);
 		std::string _nom;
-		static std::map<std::string, EtatRobot*> _etats;
+		static std::map<std::string, EtatRobot*> & _etats();
 		static EtatRobot * _etatCourant;
 
 	public:

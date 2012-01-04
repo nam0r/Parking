@@ -2,7 +2,7 @@
 
 using namespace std;
 
-EtatAVideFaceObstacle* EtatAVideFaceObstacle::_instance = NULL;
+EtatAVideFaceObstacle* EtatAVideFaceObstacle::_instance = EtatAVideFaceObstacle::getInstance();
 
 EtatAVideFaceObstacle* EtatAVideFaceObstacle::getInstance() {
 	if(_instance == NULL)
@@ -11,7 +11,7 @@ EtatAVideFaceObstacle* EtatAVideFaceObstacle::getInstance() {
 }
 
 EtatAVideFaceObstacle::EtatAVideFaceObstacle() : EtatEnRoute("EtatAVideFaceObstacle") {
-	EtatRobot::_etats[getNom()] = this;
+	//EtatRobot::_etats[getNom()] = this;
 }
 
 int EtatAVideFaceObstacle::evaluerObstacle() {

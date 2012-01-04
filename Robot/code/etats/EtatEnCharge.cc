@@ -2,7 +2,7 @@
 
 using namespace std;
 
-EtatEnCharge* EtatEnCharge::_instance = NULL;
+EtatEnCharge* EtatEnCharge::_instance = EtatEnCharge::getInstance();
 
 EtatEnCharge* EtatEnCharge::getInstance() {
 	if(_instance == NULL)
@@ -11,7 +11,7 @@ EtatEnCharge* EtatEnCharge::getInstance() {
 }
 
 EtatEnCharge::EtatEnCharge() : EtatEnRoute("EtatEnCharge") {
-	EtatRobot::_etats[getNom()] = this;
+	//EtatRobot::_etats[getNom()] = this;
 }
 
 void EtatEnCharge::avancer(int x, int y) {

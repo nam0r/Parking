@@ -2,7 +2,7 @@
 
 using namespace std;
 
-EtatEnChargeFaceObstacle* EtatEnChargeFaceObstacle::_instance = NULL;
+EtatEnChargeFaceObstacle* EtatEnChargeFaceObstacle::_instance = EtatEnChargeFaceObstacle::getInstance();
 
 EtatEnChargeFaceObstacle* EtatEnChargeFaceObstacle::getInstance() {
 	if(_instance == NULL)
@@ -11,7 +11,7 @@ EtatEnChargeFaceObstacle* EtatEnChargeFaceObstacle::getInstance() {
 }
 
 EtatEnChargeFaceObstacle::EtatEnChargeFaceObstacle() : EtatEnRoute("EtatEnChargeFaceObstacle") {
-	EtatRobot::_etats[getNom()] = this;
+	//EtatRobot::_etats[getNom()] = this;
 }
 
 void EtatEnChargeFaceObstacle::tourner(std::string direction) {

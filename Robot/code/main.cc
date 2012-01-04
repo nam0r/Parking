@@ -7,6 +7,7 @@ int main() {
 	Robot robot;
 	AfficheurConsole console(&robot);
 	robot.attache(&console);
+
 	Obstacle *o;
 	Objet *ob;
 

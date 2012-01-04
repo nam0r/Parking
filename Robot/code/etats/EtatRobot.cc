@@ -8,22 +8,27 @@
 
 using namespace std;
 
-map<string, EtatRobot*> EtatRobot::_etats;
+// Construct on first use idiom
+// http://www.parashift.com/c++-faq-lite/ctors.html#faq-10.15
+map<string, EtatRobot*> & EtatRobot::_etats() {
+	static map<string, EtatRobot*> * e = new map<string, EtatRobot*>();
+	return *e;
+}
 
 EtatRobot* EtatRobot::_etatCourant = EtatAVide::getInstance();
 
 EtatRobot::EtatRobot() {}
 
-EtatRobot::EtatRobot(string nom) { _nom = nom; }
+EtatRobot::EtatRobot(string nom) {
+	_nom = nom;
+	EtatRobot::_etats()[_nom] = this;
+}
 
 string EtatRobot::getNom() {
 	return _nom;
 }
 
 EtatRobot* EtatRobot::getEtatCourant() {
-	EtatAVideFaceObstacle::getInstance();
-	EtatEnChargeFaceObstacle::getInstance();
-	EtatEnCharge::getInstance();
 	/*
 	if(_etats.find(_etatCourant) == _etats.end()) {
 		cerr << "L'etat nommé " << _etatCourant << " n'existe pas !" << endl;
@@ -35,11 +40,11 @@ EtatRobot* EtatRobot::getEtatCourant() {
 }
 
 void EtatRobot::changerEtat(string nom) {
-	if(_etats.find(nom) == _etats.end()) {
+	if(_etats().find(nom) == _etats().end()) {
 		cerr << "L'etat nommé " << nom << " n'existe pas !" << endl;
 		exit(EXIT_FAILURE);
 	}
-	_etatCourant = _etats[nom];
+	_etatCourant = _etats()[nom];
 }
 
 void EtatRobot::avancer(int x, int y) {

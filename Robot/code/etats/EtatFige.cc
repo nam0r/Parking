@@ -2,7 +2,7 @@
 
 using namespace std;
 
-EtatFige* EtatFige::_instance = NULL;
+EtatFige* EtatFige::_instance = EtatFige::getInstance();
 
 EtatFige* EtatFige::getInstance() {
 	if(_instance == NULL)
@@ -11,7 +11,7 @@ EtatFige* EtatFige::getInstance() {
 }
 
 EtatFige::EtatFige() : EtatRobot("EtatFige") {
-	EtatRobot::_etats[getNom()] = this;
+	//EtatRobot::_etats[getNom()] = this;
 	_dernierEtat = NULL;
 }
 

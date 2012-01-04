@@ -2,7 +2,7 @@
 
 using namespace std;
 
-EtatAVide* EtatAVide::_instance = NULL;
+EtatAVide* EtatAVide::_instance = EtatAVide::getInstance();
 
 EtatAVide* EtatAVide::getInstance() {
 	if(_instance == NULL) {
@@ -10,11 +10,17 @@ EtatAVide* EtatAVide::getInstance() {
 		//EtatRobot::_etats[_instance->getNom()] = _instance;
 	}
 	return _instance;
+	/*
+	if(EtatAVide::_instance == NULL) {
+		EtatAVide::_instance = new EtatAVide();
+	}
+	return EtatAVide::_instance;
+	*/
 }
 
 EtatAVide::EtatAVide() : EtatEnRoute("EtatAVide") {
 	//EtatRobot::_etats[_instance->getNom()] = _instance;
-	EtatRobot::_etats[getNom()] = this;
+	//EtatRobot::_etats[getNom()] = this;
 }
 
 void EtatAVide::avancer(int x, int y) {
