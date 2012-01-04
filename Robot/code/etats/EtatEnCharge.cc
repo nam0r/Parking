@@ -15,17 +15,18 @@ EtatEnCharge::EtatEnCharge() : EtatEnRoute("EtatEnCharge") {
 }
 
 void EtatEnCharge::avancer(int x, int y) {
-	
+	cout << "EtatEnCharge::avancer" << endl;
 }
 
 void EtatEnCharge::tourner(std::string direction) {
-	
+	cout << "EtatEnCharge::tourner" << endl;	
 }
 
 void EtatEnCharge::rencontrerObstacle(Obstacle o) {
-	
+	cout << "EtatEnCharge::avancer" << endl;
+	changerEtat("EtatEnChargeFaceObstacle");
 }
 
 int EtatEnCharge::peser() {
-	
+	cout << "EtatEnCharge::peser" << endl;	
 }

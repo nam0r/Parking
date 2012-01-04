@@ -15,13 +15,15 @@ EtatAVideFaceObstacle::EtatAVideFaceObstacle() : EtatEnRoute("EtatAVideFaceObsta
 }
 
 int EtatAVideFaceObstacle::evaluerObstacle() {
-	
+	cout << "EtatAVideFaceObstacle::evaluerObstacle" << endl;
 }
 
 void EtatAVideFaceObstacle::tourner(std::string direction) {
-	
+	cout << "EtatAVideFaceObstacle::tourner" << endl;
+	changerEtat("EtatAVide");
 }
 
 void EtatAVideFaceObstacle::saisir(Objet o) {
-	
+	cout << "EtatAVideFaceObstacle::saisir" << endl;
+	changerEtat("EtatEnChargeFaceObstacle");
 }

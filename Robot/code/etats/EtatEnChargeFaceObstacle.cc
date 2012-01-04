@@ -15,13 +15,16 @@ EtatEnChargeFaceObstacle::EtatEnChargeFaceObstacle() : EtatEnRoute("EtatEnCharge
 }
 
 void EtatEnChargeFaceObstacle::tourner(std::string direction) {
-	
+	cout << "EtatEnChargeFaceObstacle::tourner" << endl;
+	changerEtat("EtatEnCharge");
 }
 
 void EtatEnChargeFaceObstacle::poser() {
-	
+	cout << "EtatEnChargeFaceObstacle::poser" << endl;	
+	changerEtat("EtatAVideFaceObstacle");
 }
 
 int EtatEnChargeFaceObstacle::peser() {
+	cout << "EtatEnChargeFaceObstacle::peser" << endl;
 	
 }

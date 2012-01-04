@@ -10,98 +10,59 @@ Robot::Robot() :
 	}
 
 void Robot::avancer(int x, int y) {
-	try {
-		_etat->avancer(x,y);
-		_position.setX(x);
-		_position.setY(y);
-		changerEtat(_etat->getEtatCourant());
-	} catch(exception &e) {
-		cerr << e.what() << endl;
-	}
+	_etat->avancer(x,y);
+	_position.setX(x);
+	_position.setY(y);
+	changerEtat(_etat->getEtatCourant());
 	notifie();
 }
 
 void Robot::tourner(string direction) {
-	try {
-		_etat->tourner(direction);
-		_direction = direction;
-		changerEtat(_etat->getEtatCourant());
-	} catch(exception &e) {
-		cerr << e.what() << endl;
-	}
+	_etat->tourner(direction);
+	_direction = direction;
+	_obstacle = NULL;
+	changerEtat(_etat->getEtatCourant());
 	notifie();
 }
 
 void Robot::saisir(Objet * o) {
-	try {
-		_etat->saisir(o);
-		_objet = o;
-		changerEtat(_etat->getEtatCourant());
-	} catch(exception &e) {
-		cerr << e.what() << endl;
-	}
+	_etat->saisir(o);
+	_objet = o;
+	changerEtat(_etat->getEtatCourant());
 	notifie();
 }
 
 void Robot::poser() {
-	try {
-		_etat->poser();
-		_objet = NULL;
-		changerEtat(_etat->getEtatCourant());
-	} catch(exception &e) {
-		cerr << e.what() << endl;
-	}
+	_etat->poser();
+	_objet = NULL;
+	changerEtat(_etat->getEtatCourant());
 	notifie();
 }
 
 int Robot::peser() {
-	try {
-		_etat->peser();
-		return (_objet == NULL) ? 0 : _objet->getPoids();
-	} catch(exception &e) {
-		cerr << e.what() << endl;
-	}
-	return 0;
+	return _etat->peser();
 }
 
 void Robot::rencontrerObstacle(Obstacle * o) {
-	try {
-		_etat->rencontrerObstacle(o);
-		_obstacle = o;
-		changerEtat(_etat->getEtatCourant());
-	} catch(exception &e) {
-		cerr << e.what() << endl;
-	}
+	_etat->rencontrerObstacle(o);
+	_obstacle = o;
+	changerEtat(_etat->getEtatCourant());
 	notifie();
 }
 
 int Robot::evaluerObstacle() {
-	try {
-		_etat->evaluerObstacle();
-		return (_obstacle == NULL) ? 0 : _obstacle->getHauteur();
-	} catch(exception &e) {
-		cerr << e.what() << endl;
-	}
-	return 0;
+	return _etat->evaluerObstacle();
 }
 
 void Robot::figer() {
-	try {
-		_etat->figer();
-		changerEtat(_etat->getEtatCourant());
-	} catch(exception &e) {
-		cerr << e.what() << endl;
-	}
+	_etat->figer();
+	changerEtat(_etat->getEtatCourant());
 	notifie();
 }
 
 void Robot::repartir() {
-	try {
-		_etat->repartir();
-		changerEtat(_etat->getEtatCourant());
-	} catch(exception &e) {
-		cerr << e.what() << endl;
-	}
+	_etat->repartir();
+	changerEtat(_etat->getEtatCourant());
 	notifie();
 }
 
